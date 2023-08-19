@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 60ee8748b32b72742aa9a10d160884ba
+guid: 0d5e657ee5a074e4baa53d5b248a01d2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -50,7 +50,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 18
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -136,118 +136,139 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Farmer 0_Left_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 63
-        width: 18
-        height: 20
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dccdf0757221a9a42bd95246f3939bcc
-      internalID: -499609653
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Farmer 0_Left_1
-      rect:
-        serializedVersion: 2
-        x: 19
-        y: 63
-        width: 18
-        height: 20
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bec30f2edb250544dbabc2298ecf24e2
-      internalID: 1776820291
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Farmer 0_Left_2
-      rect:
-        serializedVersion: 2
-        x: 38
-        y: 63
-        width: 18
-        height: 20
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2748d19d884a7604e99637304b67677a
-      internalID: -1095121856
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Farmer 0_Left_3
+      name: Weapon 0
       rect:
         serializedVersion: 2
         x: 0
         y: 42
         width: 18
-        height: 20
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 9
+      alignment: 9
+      pivot: {x: 0.3, y: 0.6}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c52fe774c2b19b6459bf1691afd19897
-      internalID: -1215503509
+      spriteID: fe848cb6984cf0548a022c05227812e9
+      internalID: 143021600
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farmer 0_Left_4
+      name: Weapon 1
       rect:
         serializedVersion: 2
         x: 19
         y: 42
         width: 18
-        height: 20
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 9
+      alignment: 9
+      pivot: {x: 0.3, y: 0.6}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2ebc54305c65aa4cb9a17a7a9126ef7
-      internalID: -1892321948
+      spriteID: 03aa7ec46ababa94ea4b79b5dbe919bf
+      internalID: -1972582131
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farmer 0_Left_5
+      name: Weapon 2
       rect:
         serializedVersion: 2
         x: 38
         y: 42
         width: 18
-        height: 20
+        height: 9
+      alignment: 9
+      pivot: {x: 0.3, y: 0.6}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c1356655813fe24d9a8738c61aafcbf
+      internalID: 1349035616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapon 3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 18
+        height: 9
+      alignment: 9
+      pivot: {x: 0.2, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5c66514b4fe03344901566a85dac876
+      internalID: -353751291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapon 4
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 32
+        width: 18
+        height: 9
+      alignment: 9
+      pivot: {x: 0.2, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6a369fad18131b46b18f789f5ed532a
+      internalID: -144335857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weapon 5
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 32
+        width: 18
+        height: 9
+      alignment: 9
+      pivot: {x: 0.2, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d13921cb5b88da4a93c26ca793efdf2
+      internalID: 1772703093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bullet 0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 13
+        width: 7
+        height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,20 +276,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 869ac776e76473543b45d72a79f53b83
-      internalID: 1998987454
+      spriteID: 5aa825181fcee7a419436726060b971a
+      internalID: 1737672109
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farmer 0_Left_6
+      name: Bullet 1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 21
-        width: 18
-        height: 20
+        x: 8
+        y: 13
+        width: 7
+        height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -276,113 +297,239 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be59b91939fe28f468af5c7e79fce2b1
-      internalID: -359515307
+      spriteID: bca8a8641c6e3354ab75d0274abbc1e1
+      internalID: -703694536
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farmer 0_Left_7
+      name: Bullet 2
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 18
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6aabc5203cefc24db52ecf0ea98f5c4
+      internalID: 762804792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bullet 3
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 23
+        width: 4
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6befcdde3e485df47821ae82f1c4a2b2
+      internalID: -537537479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bullet 4
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 22
+        width: 5
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c2486907b334634e81ca354c6e9bb14
+      internalID: -1327499133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shadow
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 25
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97c7a789f60c2734eaa0870903d4a8b4
+      internalID: 1304559308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bullet 5
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 15
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0b3786c7d6806b4e95c8bfa9106f125
+      internalID: 154122315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Box
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 12
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4e1b228964841144bcdc169a70818dd
+      internalID: -38345435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Exp 0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 18
-        height: 20
+        width: 10
+        height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3b223a786f193443a1c73ff12fe66f6
-      internalID: 187339337
+      spriteID: 74fc20a4abc4ea54b8692b4c6987d1c0
+      internalID: 362616440
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farmer 0_Left_8
+      name: Exp 1
       rect:
         serializedVersion: 2
-        x: 19
-        y: 21
-        width: 18
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 15a9fdb4edfed5a41bec98922dcc8b74
-      internalID: 691238540
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Farmer 0_Left_9
-      rect:
-        serializedVersion: 2
-        x: 38
-        y: 21
-        width: 18
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0ac8738a073d3fe44b667136cbadd46f
-      internalID: 447341032
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Farmer 0_Left_10
-      rect:
-        serializedVersion: 2
-        x: 19
+        x: 11
         y: 0
-        width: 18
-        height: 20
+        width: 10
+        height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56766b7911fd8fb40a7010f049d98af5
-      internalID: 1323528836
+      spriteID: dca584bf28cc4394ab1b4968285fbd18
+      internalID: 1807624531
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Farmer 0_Left_11
+      name: Exp 2
       rect:
         serializedVersion: 2
-        x: 38
+        x: 22
         y: 0
-        width: 18
-        height: 20
+        width: 10
+        height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3db93fbf92ab7c47b46c7538f27189d
-      internalID: 31570104
+      spriteID: c499da979228cb7479ca05e08eef5ee4
+      internalID: -1997803578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mag
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 0
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d814282c489a3c140b0a29e1308a03cb
+      internalID: 1997828774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Health
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 0
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e058c59a9d96270428e48c18f4b31870
+      internalID: 934571490
       vertices: []
       indices: 
       edges: []
@@ -391,25 +538,32 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Farmer 0_Left_0: -499609653
-      Farmer 0_Left_1: 1776820291
-      Farmer 0_Left_10: 1323528836
-      Farmer 0_Left_11: 31570104
-      Farmer 0_Left_2: -1095121856
-      Farmer 0_Left_3: -1215503509
-      Farmer 0_Left_4: -1892321948
-      Farmer 0_Left_5: 1998987454
-      Farmer 0_Left_6: -359515307
-      Farmer 0_Left_7: 187339337
-      Farmer 0_Left_8: 691238540
-      Farmer 0_Left_9: 447341032
+      Box: -38345435
+      Bullet 0: 1737672109
+      Bullet 1: -703694536
+      Bullet 2: 762804792
+      Bullet 3: -537537479
+      Bullet 4: -1327499133
+      Bullet 5: 154122315
+      Exp 0: 362616440
+      Exp 1: 1807624531
+      Exp 2: -1997803578
+      Health: 934571490
+      Mag: 1997828774
+      Shadow: 1304559308
+      Weapon 0: 143021600
+      Weapon 1: -1972582131
+      Weapon 2: 1349035616
+      Weapon 3: -353751291
+      Weapon 4: -144335857
+      Weapon 5: 1772703093
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

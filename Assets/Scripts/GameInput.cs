@@ -1,9 +1,11 @@
+using System;
 using UnityEngine;
 
 public class GameInput : MonoBehaviour {
     public static GameInput Instance { get; private set; }
 
     private InputActionSystem inputActionSystem;
+    public event EventHandler OnShoot;
 
     private void Awake()
     {
@@ -17,6 +19,12 @@ public class GameInput : MonoBehaviour {
         }
         inputActionSystem = new InputActionSystem();
         inputActionSystem.Player.Enable();
+        inputActionSystem.Player.Shoot.performed += Shoot_performed;
+    }
+
+    private void Shoot_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        OnShoot?.Invoke(this, EventArgs.Empty);
     }
 
     public Vector2 GetInputVectorNormalized()
