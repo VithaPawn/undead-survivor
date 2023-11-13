@@ -1,23 +1,21 @@
 using System;
 using UnityEngine;
 
-public class Player : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour {
 
-    public static Player Instance { get; private set; }
-
-    [SerializeField] private Rigidbody2D playerRb;
-    [SerializeField] private Camera cam;
+    public static PlayerMovement Instance { get; private set; }
 
     private readonly float moveSpeed = 7f;
+
+    [SerializeField] private Camera cam;
+    private Rigidbody2D playerRb;
     private Vector2 mousePosition;
-    private Vector2 lookAtDirection;
     private Vector2 moveDirection;
-    private bool IsWalkBackward;
 
     public event EventHandler<OnMoveEventArgs> OnMove;
     public class OnMoveEventArgs : EventArgs {
         public Vector2 moveDirection;
-        public bool isWalkBackward;
+        public float WalkVisualDirection;
     }
 
     private void Awake()
@@ -30,6 +28,7 @@ public class Player : MonoBehaviour {
         {
             Instance = this;
         }
+        playerRb = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -44,7 +43,20 @@ public class Player : MonoBehaviour {
         playerRb.MovePosition(playerRb.position + moveDirection * moveSpeed * Time.fixedDeltaTime);
 
         // Handle what side that player looks at
-        lookAtDirection = mousePosition - playerRb.position;
+        Vector2 lookAtDirection = mousePosition - playerRb.position;
+        LookAt(lookAtDirection);
+
+        // Fire movement event to player visual
+        Vector2 lookAtDirectionNormalized = lookAtDirection.normalized;
+        OnMove?.Invoke(this, new OnMoveEventArgs
+        {
+            moveDirection = moveDirection,
+            WalkVisualDirection = lookAtDirectionNormalized.x * moveDirection.x
+        });
+    }
+
+    private void LookAt(Vector2 lookAtDirection)
+    {
         if (lookAtDirection.x >= 0)
         {
             transform.localScale = Vector3.one;
@@ -53,20 +65,5 @@ public class Player : MonoBehaviour {
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
-
-        if (lookAtDirection.x * moveDirection.x >= 0)
-        {
-            IsWalkBackward = false;
-        }
-        else
-        {
-            IsWalkBackward = true;
-        }
-
-        OnMove?.Invoke(this, new OnMoveEventArgs
-        {
-            moveDirection = moveDirection,
-            isWalkBackward = IsWalkBackward
-        });
     }
 }

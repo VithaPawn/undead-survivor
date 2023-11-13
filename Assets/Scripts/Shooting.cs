@@ -4,9 +4,9 @@ public class Shooting : MonoBehaviour {
     // Control shoot action objects
     [SerializeField] private Transform firePoint;
     [SerializeField] private Bullet bulletPrefab;
+    [SerializeField] private float bulletForce = 10f;
 
     private Weapon weapon;
-    private readonly float bulletForce = 7f;
 
     private void Start()
     {
@@ -31,6 +31,6 @@ public class Shooting : MonoBehaviour {
         }
         Bullet bullet = Instantiate(bulletPrefab, firePoint.position, bulletRotation);
         Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
-        bulletRb.AddForce(weapon.GetWeaponDirection() * bulletForce, ForceMode2D.Impulse);
+        bulletRb.AddForce(weapon.GetWeaponDirectionNormalized() * bulletForce, ForceMode2D.Impulse);
     }
 }

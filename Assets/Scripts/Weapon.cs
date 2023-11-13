@@ -34,5 +34,5 @@ public class Weapon : MonoBehaviour {
 
     public Transform GetWeaponHolder() { return weaponHolder; }
 
-    public Vector2 GetWeaponDirection() { return weaponDirection; }
+    public Vector2 GetWeaponDirectionNormalized() { return weaponDirection.normalized; }
 }
