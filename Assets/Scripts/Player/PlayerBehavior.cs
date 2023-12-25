@@ -30,9 +30,8 @@ public class PlayerBehavior : MonoBehaviour {
     private void Update()
     {
         Enemy collidedEnemy = GetCollidedEnemy();
-        if (collidedEnemy != null)
+        if (collidedEnemy != null && !collidedEnemy.isDie)
         {
-            ControlDamageDetectTimer();
             if (damagedDetectTimer == 0)
             {
                 OnBeHitted?.Invoke(this, new OnBeHittedEventArgs
@@ -40,6 +39,7 @@ public class PlayerBehavior : MonoBehaviour {
                     collidedEnemy = collidedEnemy
                 });
             }
+            ControlDamageDetectTimer();
         }
     }
 

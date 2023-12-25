@@ -18,8 +18,18 @@ public class GameInput : MonoBehaviour {
             Instance = this;
         }
         inputActionSystem = new InputActionSystem();
+    }
+
+    private void OnEnable()
+    {
         inputActionSystem.Player.Enable();
         inputActionSystem.Player.Shoot.performed += Shoot_performed;
+    }
+
+    private void OnDisable()
+    {
+        inputActionSystem.Player.Disable();
+        inputActionSystem.Player.Shoot.performed -= Shoot_performed;
     }
 
     private void Shoot_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj)

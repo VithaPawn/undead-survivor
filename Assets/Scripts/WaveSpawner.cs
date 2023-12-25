@@ -5,8 +5,6 @@ public class WaveSpawner : MonoBehaviour {
     [SerializeField] private List<EnemySO> enemySOList;
 
     private readonly float waveDuration = 20f;
-    private int sortingOrderOffset = 0;
-    private float sortingOrderTimer = 60f;
     private float enemySpawnTimerMax;
     private float enemySpawnTimer;
 
@@ -19,7 +17,6 @@ public class WaveSpawner : MonoBehaviour {
     private void Update()
     {
         ControlEnemySpawn();
-        ControlEnemySortingLayerTimer();
     }
 
     private void ControlEnemySpawn()
@@ -32,19 +29,9 @@ public class WaveSpawner : MonoBehaviour {
         }
     }
 
-    private void ControlEnemySortingLayerTimer()
-    {
-        sortingOrderTimer -= Time.deltaTime;
-        if (sortingOrderTimer <= 0)
-        {
-            sortingOrderOffset = 0;
-        }
-    }
-
     private void SpawnEnemy()
     {
         EnemySO enemySO = enemySOList[Random.Range(0, enemySOList.Count)];
-        Enemy enemy = Instantiate(enemySO.enemyPrefab, Vector3.zero, Quaternion.identity);
-        enemy.GetEnemyVisual().SetPlayerVisualSortingOrder(sortingOrderOffset++);
+        Instantiate(enemySO.enemyPrefab, new Vector3(0, 0, 0.001f), Quaternion.identity);
     }
 }

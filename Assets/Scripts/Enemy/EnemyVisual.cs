@@ -12,10 +12,16 @@ public class EnemyVisual : MonoBehaviour {
     {
         animator = GetComponent<Animator>();
     }
-    private void Start()
+    private void OnEnable()
     {
         enemy.OnHitted += Enemy_OnHitted;
         enemy.OnDie += Enemy_OnDie;
+    }
+
+    private void OnDisable()
+    {
+        enemy.OnHitted -= Enemy_OnHitted;
+        enemy.OnDie -= Enemy_OnDie;
     }
 
     private void Enemy_OnDie(object sender, System.EventArgs e)
@@ -43,12 +49,5 @@ public class EnemyVisual : MonoBehaviour {
 
         // Set the "IsHitting" parameter back to false
         animator.SetBool(IS_HITTED, false);
-    }
-
-
-    public void SetPlayerVisualSortingOrder(int sortingOrder)
-    {
-        Renderer renderer = gameObject.GetComponent<Renderer>();
-        renderer.sortingOrder = sortingOrder;
     }
 }

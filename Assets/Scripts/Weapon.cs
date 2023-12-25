@@ -12,11 +12,17 @@ public class Weapon : MonoBehaviour {
 
     private void Update()
     {
-        mousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
-        weaponParentPosition = new Vector2(weaponParent.position.x, weaponParent.position.y);
+        if (weaponParent != null)
+        {
+            mousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
+            weaponParentPosition = new Vector2(weaponParent.position.x, weaponParent.position.y);
+            float weaponAngle = GetWeaponRotaitonAngle();
+            // Set rotation of the weapon
+            SetWeaponRotationByAngle(0, 0, weaponAngle);
+        }
     }
 
-    private void FixedUpdate()
+    private float GetWeaponRotaitonAngle()
     {
         // Get angle between weaponDirection vector and Vector2.right vector
         weaponDirection = mousePosition - weaponParentPosition;
@@ -27,9 +33,12 @@ public class Weapon : MonoBehaviour {
         {
             angle += 180f;
         }
+        return angle;
+    }
 
-        // Set rotation of the weapon
-        transform.rotation = Quaternion.Euler(0, 0, angle);
+    private void SetWeaponRotationByAngle(float xAngle = 0f, float yAngle = 0f, float zAngle = 0f)
+    {
+        transform.rotation = Quaternion.Euler(xAngle, yAngle, zAngle);
     }
 
     public Transform GetWeaponHolder() { return weaponHolder; }

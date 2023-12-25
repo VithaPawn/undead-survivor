@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1436877386776462415}
   - component: {fileID: 3250677848849518579}
+  - component: {fileID: 8734484365901241501}
   m_Layer: 0
   m_Name: BoxVisual
   m_TagString: Untagged
@@ -84,6 +85,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8734484365901241501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742817430334990441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cb6e9ac6e96bd94fa0013d57eb7ee16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sortingOrderZBase: 0
+  offset: 0
+  runOnlyOnce: 1
 --- !u!1 &6748110760581342283
 GameObject:
   m_ObjectHideFlags: 0
