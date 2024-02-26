@@ -113,7 +113,7 @@ public class WaveManager : MonoBehaviour {
         foreach (var enemy in enemySOs)
         {
             Vector3 spawnPosition = spawnArea.GetRelativePawnPositionByLandmark(playerPosition);
-            Instantiate(enemy.prefab, spawnPosition, Quaternion.identity);
+            PlayingObjects.Enemy.SpawnEnemy(enemy, spawnPosition);
         }
     }
 

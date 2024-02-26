@@ -21,13 +21,16 @@ namespace PlayingObjects {
         #endregion Variables
 
         #region Methods
-        public static Enemy SpawnKitchenObject(DatabaseSystem.ScriptableObjects.Enemy enemySO, Vector3 spawnPosition)
+
+        #region Spawn
+        public static Enemy SpawnEnemy(DatabaseSystem.ScriptableObjects.Enemy enemySO, Vector3 spawnPosition)
         {
             Enemy enemy = Instantiate(enemySO.prefab, spawnPosition, Quaternion.identity);
             enemy.Initialize();
 
             return enemy;
         }
+
         private void Initialize()
         {
             enemyVisual = GetComponentInChildren<EnemyVisual>();
@@ -37,6 +40,7 @@ namespace PlayingObjects {
             bodyRemainTimer = enemySO.bodyRemainDelay;
             expPoint = enemySO.GetRandomExpPoint();
         }
+        #endregion Spawn
 
         #region Movement
         private void FixedUpdate()
@@ -95,7 +99,7 @@ namespace PlayingObjects {
             {
                 isDie = true;
                 OnDie?.Invoke(this, EventArgs.Empty);
-                StartCoroutine(DestroyWhenDie());
+                StartCoroutine(HandleDie());
             }
             else
             {
@@ -103,9 +107,10 @@ namespace PlayingObjects {
             }
         }
 
-        private IEnumerator DestroyWhenDie()
+        private IEnumerator HandleDie()
         {
             yield return new WaitForSeconds(bodyRemainTimer);
+            ExperiencePoint.SpawnExperiencePoint(expPoint, gameObject.transform.position);
             Destroy(gameObject);
         }
         #endregion Collision
