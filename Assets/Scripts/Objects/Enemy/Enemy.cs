@@ -9,7 +9,6 @@ namespace PlayingObjects {
         public bool isDie { set; get; }
         [SerializeField] private DatabaseSystem.ScriptableObjects.Enemy enemySO;
         private EnemyVisual enemyVisual;
-        private float bodyRemainTimer;
         private float currentHealth;
         private float currentRunSpeed;
         private ExpPoint expPoint;
@@ -21,7 +20,6 @@ namespace PlayingObjects {
         #endregion Variables
 
         #region Methods
-
         #region Spawn
         public static Enemy SpawnEnemy(DatabaseSystem.ScriptableObjects.Enemy enemySO, Vector3 spawnPosition)
         {
@@ -37,7 +35,6 @@ namespace PlayingObjects {
             isDie = false;
             currentHealth = enemySO.health;
             currentRunSpeed = enemySO.speed;
-            bodyRemainTimer = enemySO.bodyRemainDelay;
             expPoint = enemySO.GetRandomExpPoint();
         }
         #endregion Spawn
@@ -99,19 +96,13 @@ namespace PlayingObjects {
             {
                 isDie = true;
                 OnDie?.Invoke(this, EventArgs.Empty);
-                StartCoroutine(HandleDie());
+                ExperiencePoint.SpawnExperiencePoint(expPoint, gameObject.transform.position);
+                Destroy(gameObject);
             }
             else
             {
                 currentRunSpeed = enemySO.speed;
             }
-        }
-
-        private IEnumerator HandleDie()
-        {
-            yield return new WaitForSeconds(bodyRemainTimer);
-            ExperiencePoint.SpawnExperiencePoint(expPoint, gameObject.transform.position);
-            Destroy(gameObject);
         }
         #endregion Collision
 

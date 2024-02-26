@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 2429107677213462720}
   - component: {fileID: 3325911759731743214}
   - component: {fileID: 2622775816340106619}
+  - component: {fileID: 1883293685749510377}
   m_Layer: 0
-  m_Name: BronzePointVisual
+  m_Name: ExperiencePointVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1913167167
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 362616440, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -97,6 +98,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f329ade18fbca0145ac10ab58d62ff54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1883293685749510377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4353105449219566218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cb6e9ac6e96bd94fa0013d57eb7ee16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: -1
+  runOnlyOnce: 1
 --- !u!1 &8231123086764610607
 GameObject:
   m_ObjectHideFlags: 0

@@ -21,18 +21,11 @@ public class EnemyVisual : MonoBehaviour {
     private void OnEnable()
     {
         enemy.OnHitted += Enemy_OnHitted;
-        enemy.OnDie += Enemy_OnDie;
     }
 
     private void OnDisable()
     {
         enemy.OnHitted -= Enemy_OnHitted;
-        enemy.OnDie -= Enemy_OnDie;
-    }
-
-    private void Enemy_OnDie(object sender, System.EventArgs e)
-    {
-        animator.SetBool(DOES_DIED, true);
     }
 
     private void Enemy_OnHitted(object sender, System.EventArgs e)
