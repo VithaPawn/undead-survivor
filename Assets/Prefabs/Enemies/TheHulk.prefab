@@ -186,3 +186,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySO: {fileID: 11400000, guid: 45dd53a342f98ed48a862ad622cc697a, type: 2}
+  explodeEffect: {fileID: 11400000, guid: 20efcc35d4c917a439291d0a4faaeea9, type: 2}

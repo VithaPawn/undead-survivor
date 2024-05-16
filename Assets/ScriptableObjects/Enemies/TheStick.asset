@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d816b5c86b769c94dbdf309f12e4322f, type: 3}
+  m_Name: TheStick
+  m_EditorClassIdentifier: 
+  id: 1
+  prefab: {fileID: 6782564548533791872, guid: 8163c1edd9140934ebae96a951cce11a, type: 3}
+  enemyName: The Stick
+  damageToPlayer: 50
+  health: 80
+  speed: 3
+  bodyRemainDelay: 0
+  value: 1
+  score: 15
+  expProvidedPoints:
+  - point: {fileID: 11400000, guid: a24928ca508fc734a87d701d6d45957e, type: 2}
+    weight: 80
+  - point: {fileID: 11400000, guid: 279c46e07eb673f44bcc5e3c4d63e040, type: 2}
+    weight: 20

@@ -97,7 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cb6e9ac6e96bd94fa0013d57eb7ee16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sortingOrderZBase: 0
   offset: 0
   runOnlyOnce: 0
 --- !u!1 &2966816193749157127
@@ -148,9 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
-  weaponParent: {fileID: 0}
-  weaponHolder: {fileID: 0}
-  firePoint: {fileID: 0}
+  isPlayerTurnRight: {fileID: 11400000, guid: 1b0f1f9c47088ad4e99c21046120335c, type: 2}
 --- !u!114 &1709040673673671451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,7 +162,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 5997772214828542400}
   bulletPrefab: {fileID: 9176584418623750042, guid: 6602f3d7252bb4e4ea40dbac7208b1d2, type: 3}
-  shootingForce: 200
+  shootingWeaponSO: {fileID: 11400000, guid: 60b8bb65cb7e69e4b991af78ea0cd7a6, type: 2}
+  IsPlayerTurnRight: {fileID: 11400000, guid: 1b0f1f9c47088ad4e99c21046120335c, type: 2}
+  GameStateManagerSO: {fileID: 11400000, guid: 9cfe2dd478d48934696d11fa12f5c389, type: 2}
+  shootSound: {fileID: 11400000, guid: 248658c9991a5f34fa0e92679aaf5d22, type: 2}
 --- !u!1 &7743838825418638620
 GameObject:
   m_ObjectHideFlags: 0

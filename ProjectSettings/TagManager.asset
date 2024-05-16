@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
@@ -49,4 +50,10 @@ TagManager:
     locked: 0
   - name: Weapon
     uniqueID: 3074030395
+    locked: 0
+  - name: Abilities
+    uniqueID: 2514169265
+    locked: 0
+  - name: UI
+    uniqueID: 2112955417
     locked: 0

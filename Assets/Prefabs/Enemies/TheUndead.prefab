@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9099049067461971344, guid: 50e219aa45f78f44b8b3ac97b6062732, type: 3}
       propertyPath: m_Name
-      value: NormalUndead
+      value: TheUndead
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySO: {fileID: 11400000, guid: a8f204c32d8aee645b099dac3d227961, type: 2}
+  explodeEffect: {fileID: 11400000, guid: 20efcc35d4c917a439291d0a4faaeea9, type: 2}
 --- !u!1 &7606451780574650075 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1833174809132074169, guid: 50e219aa45f78f44b8b3ac97b6062732, type: 3}

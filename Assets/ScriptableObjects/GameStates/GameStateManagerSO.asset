@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95946e799c61a534e9422b1b3670f2c6, type: 3}
+  m_Name: GameStateManagerSO
+  m_EditorClassIdentifier: 
+  _initialValue: {fileID: 11400000, guid: d92205ac3c7510e48a0e4ee63deee9ce, type: 2}
+  _currentValue: {fileID: 11400000, guid: d92205ac3c7510e48a0e4ee63deee9ce, type: 2}
+  _gameMenuState: {fileID: 11400000, guid: d92205ac3c7510e48a0e4ee63deee9ce, type: 2}
+  _gamePlayingState: {fileID: 11400000, guid: dccf72fac8b0a9b46b1df3c70ca6ae98, type: 2}
+  _gameOverState: {fileID: 11400000, guid: d620c5a15f225bc4cb39bda7d6e3e3e0, type: 2}
