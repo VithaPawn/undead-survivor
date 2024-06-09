@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour {
             Vector2 lookAtDirection = mousePosition - playerRb.position;
             LookAt(lookAtDirection);
 
-            // Fire movement event to player visual
+            // Trigger movement event to player visual
             Vector2 lookAtDirectionNormalized = lookAtDirection.normalized;
             OnMove?.Invoke(this, new OnMoveEventArgs
             {

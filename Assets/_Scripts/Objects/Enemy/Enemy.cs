@@ -7,6 +7,7 @@ namespace PlayingObjects {
     public class Enemy : MonoBehaviour {
         #region Variables
         public bool isDie { set; get; }
+        [SerializeField] private FloatVariableSO defeatedEnemiesAmount;
         [SerializeField] private DatabaseSystem.ScriptableObjects.Enemy enemySO;
         private EnemyVisual enemyVisual;
         private float currentHealth;
@@ -15,7 +16,6 @@ namespace PlayingObjects {
 
         #region Events
         public event EventHandler OnHitted;
-        public event EventHandler OnDie;
         #endregion Events
         #endregion Variables
 
@@ -94,7 +94,7 @@ namespace PlayingObjects {
             if (currentHealth <= 0f)
             {
                 isDie = true;
-                OnDie?.Invoke(this, EventArgs.Empty);
+                defeatedEnemiesAmount.Increase(1);
                 CoinManager.Instance.GenerateCoin(expPoint, gameObject.transform.position);
                 Destroy(gameObject);
             }

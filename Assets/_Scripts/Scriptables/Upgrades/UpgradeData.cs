@@ -5,12 +5,13 @@ using UnityEngine;
 public class UpgradeData : ScriptableObject {
     #region Variables
     [SerializeField] private UpgradeType upgradeType;
+    [SerializeField] private int upgradeSystemId;
     [SerializeField] private string upgradeName;
     [SerializeField] private string description;
     [SerializeField] private Sprite icon;
     [SerializeField] private int level;
     [SerializeField] private List<UpgradeData> nextUpgrade;
-    [Header("For Ability Type")]
+    [Header("For Upgrade/Ability Type")]
     [SerializeField] private GameObject abilityPrefab;
     [Header("For Stat Type")]
     [SerializeField] private float statParameter;
@@ -25,5 +26,6 @@ public class UpgradeData : ScriptableObject {
     public List<UpgradeData> GetNextUpgrade() { return nextUpgrade; }
     public GameObject GetAbilityPrefab() { return abilityPrefab; }
     public float GetStatParameter() { return statParameter; }
+    public int GetUpgradeSystemId() { return upgradeSystemId; }
     #endregion Methods
 }

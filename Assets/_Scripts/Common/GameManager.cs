@@ -5,12 +5,13 @@ public class GameManager : MonoBehaviour {
     #region Variables
     public static GameManager Instance { get; private set; }
 
-    [Header("Player Health")]
-    [SerializeField] private FloatVariableSO playerHealth;
     [Header("Game State")]
     [SerializeField] private GameStateSO gameOverStateSO;
     [Header("Game State Manager")]
     [SerializeField] private GameStateManagerSO gameStateManagerSO;
+    [Header("Information need to reset")]
+    [SerializeField] private FloatVariableSO playerHealth;
+    [SerializeField] private UpgradePool upgradePool;
     [Header("Playing Time Counter")]
     private float playingTimeCounter = 0f;
     [Header("Player")]
@@ -83,6 +84,7 @@ public class GameManager : MonoBehaviour {
         {
             playingTimeCounter = 0f;
             playerHealth.ResetValue();
+            upgradePool.ResetAvailablePool();
             playerObject.transform.position = Vector3.zero;
             playerObject.SetActive(true);
         }

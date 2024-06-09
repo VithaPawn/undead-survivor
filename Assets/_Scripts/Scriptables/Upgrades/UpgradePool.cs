@@ -5,7 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "UpgradePool", menuName = "ScriptableObjects/Upgrade/UpgradePool")]
 public class UpgradePool : ScriptableObject {
     #region Variables
-    [SerializeField] private List<UpgradeData> avaiablePool;
+    [SerializeField] private List<UpgradeData> initialPool;
+    [SerializeField] private List<UpgradeData> availablePool;
     [SerializeField] private List<UpgradeData> applyingList;
     #endregion Variables
 
@@ -19,18 +20,27 @@ public class UpgradePool : ScriptableObject {
         OnUpgrade = null;
     }
 
-    public List<UpgradeData> GetRandomAvaiableUpgrades(int size)
+    private void OnDisable()
+    {
+        ResetAvailablePool();
+    }
+
+    public List<UpgradeData> GetRandomAvailableUpgrades(int size)
     {
         List<UpgradeData> upgradeList = new List<UpgradeData>();
 
-        if (avaiablePool.Count < size)
+        if (availablePool.Count < size)
         {
-            size = avaiablePool.Count;
+            size = availablePool.Count;
         }
+
+        List<UpgradeData> tempPool = new List<UpgradeData>(availablePool);
 
         for (int i = 0; i < size; i++)
         {
-            upgradeList.Add(avaiablePool[UnityEngine.Random.Range(0, avaiablePool.Count)]);
+            int randomIndex = UnityEngine.Random.Range(0, tempPool.Count);
+            upgradeList.Add(tempPool[randomIndex]);
+            tempPool.RemoveAt(randomIndex);
         }
         return upgradeList;
     }
@@ -38,19 +48,20 @@ public class UpgradePool : ScriptableObject {
     public void AddToApplyingList(UpgradeData upgrade)
     {
         applyingList.Add(upgrade);
-        avaiablePool.Remove(upgrade);
+        availablePool.Remove(upgrade);
         List<UpgradeData> newUpgrades = upgrade.GetNextUpgrade();
         if (newUpgrades != null && newUpgrades.Count != 0)
         {
-            avaiablePool.AddRange(newUpgrades);
+            availablePool.AddRange(newUpgrades);
         }
         OnUpgrade?.Invoke(upgrade);
     }
 
-    public void ResetAvaiablePool()
+    public void ResetAvailablePool()
     {
-        avaiablePool.AddRange(applyingList);
+        availablePool.Clear();
         applyingList.Clear();
+        availablePool.AddRange(initialPool);
     }
     #endregion Methods
 }

@@ -770,6 +770,7 @@ Transform:
   - {fileID: 4399215031149598737}
   - {fileID: 8453445483832389364}
   - {fileID: 6170569181417331506}
+  - {fileID: 7009861702603249378}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -915,6 +916,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6170569181417331506}
+  - component: {fileID: 938176208477486466}
   m_Layer: 0
   m_Name: PlayerAbilities
   m_TagString: Untagged
@@ -937,6 +939,21 @@ Transform:
   m_Father: {fileID: 7286250267161871286}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &938176208477486466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8049506185460194032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccba79cc8a71efb47a347a20890b5f8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 11400000, guid: a823402e42650bc43bdf7b969b09f6ef, type: 2}
+  upgradePool: {fileID: 11400000, guid: 453c0f6534a23c94894c9d3ebe7c42d2, type: 2}
+  gameStateManager: {fileID: 11400000, guid: 9cfe2dd478d48934696d11fa12f5c389, type: 2}
 --- !u!1 &8195579395225475577
 GameObject:
   m_ObjectHideFlags: 0
@@ -974,6 +991,53 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -11.000002, y: -11}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &8762061902563159371
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7009861702603249378}
+  - component: {fileID: 8799787264658598174}
+  m_Layer: 0
+  m_Name: SubWeaponManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7009861702603249378
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8762061902563159371}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7286250267161871286}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8799787264658598174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8762061902563159371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 645ffa6f3de857c428a3faa8de01a98b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponType: {fileID: 11400000, guid: a30a9e481721f4c469bb8453edb47f15, type: 2}
+  upgradePool: {fileID: 11400000, guid: 453c0f6534a23c94894c9d3ebe7c42d2, type: 2}
+  gameStateManager: {fileID: 11400000, guid: 9cfe2dd478d48934696d11fa12f5c389, type: 2}
 --- !u!1001 &8657471532079331634
 PrefabInstance:
   m_ObjectHideFlags: 0

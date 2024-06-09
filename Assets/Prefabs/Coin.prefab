@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3325911759731743214}
   - component: {fileID: 2622775816340106619}
   - component: {fileID: 1883293685749510377}
-  - component: {fileID: 256271063819167282}
+  - component: {fileID: 5267691323267116658}
   m_Layer: 0
   m_Name: CoinVisual
   m_TagString: Untagged
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: -1
   runOnlyOnce: 1
---- !u!95 &256271063819167282
+--- !u!95 &5267691323267116658
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0

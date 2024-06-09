@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f0ad5ec3ddd0eb47b44c8d78ced72ce, type: 3}
+  m_Name: CycloneScythe 2
+  m_EditorClassIdentifier: 
+  upgradeType: {fileID: 11400000, guid: a30a9e481721f4c469bb8453edb47f15, type: 2}
+  upgradeSystemId: 2
+  upgradeName: Cyclone Scythe III
+  description: Grab your scythe! Time to reap some enemy heads!
+  icon: {fileID: -344242777, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
+  level: 3
+  nextUpgrade:
+  - {fileID: 11400000, guid: 76c78f93c16f7a54d8384265c90e85a0, type: 2}
+  abilityPrefab: {fileID: 2691990691013736045, guid: 177ef16887d520f41b050baf93d6a431, type: 3}
+  statParameter: 0

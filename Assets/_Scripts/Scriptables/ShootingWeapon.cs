@@ -6,5 +6,6 @@ namespace DatabaseSystem.ScriptableObjects {
         public int id;
         public float shootingForce;
         public float shootingBreakTime;
+        public float bulletDamage;
     }
 }
