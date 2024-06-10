@@ -185,5 +185,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 690ddf37557ef584283c7ec6cd7ce2df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defeatedEnemiesAmount: {fileID: 11400000, guid: 66d98e801da82944a9fee00eb8ffcc23, type: 2}
   enemySO: {fileID: 11400000, guid: 45dd53a342f98ed48a862ad622cc697a, type: 2}
-  explodeEffect: {fileID: 11400000, guid: 20efcc35d4c917a439291d0a4faaeea9, type: 2}

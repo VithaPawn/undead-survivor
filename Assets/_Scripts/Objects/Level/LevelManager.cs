@@ -45,7 +45,7 @@ public class LevelManager : MonoBehaviour {
 
     private void GameStateManagerSO_OnChanged()
     {
-        if (gameStateManagerSO.IsGameOver())
+        if (gameStateManagerSO.IsGamePlaying())
         {
             currentLevel.ResetValue();
             expTotal.ResetValue();

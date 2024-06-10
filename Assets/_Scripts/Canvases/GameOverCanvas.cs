@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,11 +7,15 @@ public class GameOverCanvas : BaseCanvas {
     [Header("Children UIs")]
     [SerializeField] private Button homeButton;
     [SerializeField] private Button replayButton;
+    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI bestText;
     [Header("Game State")]
+    [SerializeField] private GameStateManagerSO gameStateManagerSO;
     [SerializeField] private GameStateSO gameMenuStateSO;
     [SerializeField] private GameStateSO gamePlayingStateSO;
-    [Header("Game State Manager")]
-    [SerializeField] private GameStateManagerSO gameStateManagerSO;
+    [Header("Statistics")]
+    [SerializeField] private FloatVariableSO defeatedEnemiesAmount;
+    [SerializeField] private FloatVariableSO expPoints;
     #endregion Variables
 
     #region Methods
@@ -49,6 +54,13 @@ public class GameOverCanvas : BaseCanvas {
         {
             Hide();
         }
+    }
+
+    protected override void Show()
+    {
+        scoreText.text = defeatedEnemiesAmount.GetValue().ToString();
+        bestText.text = expPoints.GetValue().ToString();
+        base.Show();
     }
     #endregion Methods
 }
