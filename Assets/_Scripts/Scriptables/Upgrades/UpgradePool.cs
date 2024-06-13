@@ -49,7 +49,7 @@ public class UpgradePool : ScriptableObject {
     {
         applyingList.Add(upgrade);
         availablePool.Remove(upgrade);
-        List<UpgradeData> newUpgrades = upgrade.GetNextUpgrade();
+        List<UpgradeData> newUpgrades = upgrade.NextUpgrade;
         if (newUpgrades != null && newUpgrades.Count != 0)
         {
             availablePool.AddRange(newUpgrades);

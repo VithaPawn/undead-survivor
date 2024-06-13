@@ -19,19 +19,19 @@ public class PlayerAbilityManager : MonoBehaviour {
 
     private void UpgradePool_OnUpgrade(UpgradeData upgradeData)
     {
-        if (upgradeData.GetUpgradeType() == ability)
+        if (upgradeData.UpgradeType == ability)
         {
             foreach (Transform childTransform in transform)
             {
                 if (childTransform.TryGetComponent(out IUpgradeSingle abilityBase))
                 {
-                    if (abilityBase.UpgradeSystemId == upgradeData.GetUpgradeSystemId())
+                    if (abilityBase.UpgradeSystemId == upgradeData.UpgradeSystemId)
                     {
                         Destroy(childTransform.gameObject);
                     }
                 }
             }
-            GameObject abilityPrefab = Instantiate(upgradeData.GetAbilityPrefab(), transform);
+            GameObject abilityPrefab = Instantiate(upgradeData.AbilityPrefab, transform);
             if (abilityPrefab.TryGetComponent(out IUpgradeSingle abilitySingle)) { abilitySingle.SetupUpgrade(transform); }
         }
     }

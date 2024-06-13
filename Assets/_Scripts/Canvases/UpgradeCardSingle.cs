@@ -77,15 +77,15 @@ public class UpgradeCardSingle : MonoBehaviour {
         if (upgradeData)
         {
             icon.enabled = true;
-            icon.sprite = upgradeData.GetIcon();
+            icon.sprite = upgradeData.Icon;
         }
         else
         {
             icon.enabled = false;
         }
-        title.text = upgradeData ? upgradeData.GetUpgradeName() : String.Empty;
-        description.text = upgradeData ? upgradeData.GetDescription() : String.Empty;
-        UpdateLevelGUI(upgradeData ? upgradeData.GetLevel() : 0);
+        title.text = upgradeData ? upgradeData.UpgradeName : String.Empty;
+        description.text = upgradeData ? upgradeData.Description : String.Empty;
+        UpdateLevelGUI(upgradeData ? upgradeData.Level : 0);
     }
 
     private void UpdateLevelGUI(int level)

@@ -144,7 +144,7 @@ TextureImporter:
         width: 17
         height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -152,6 +152,27 @@ TextureImporter:
       bones: []
       spriteID: ead469332c4bc544cb896d8f3ae257c9
       internalID: -166025989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flappy Bird Sprites_1
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 67
+        width: 3
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e412f94ee0047ae4da95c5735510bae7
+      internalID: 377678692
       vertices: []
       indices: 
       edges: []
@@ -168,6 +189,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Flappy Bird Sprites_0: -166025989
+      Flappy Bird Sprites_1: 377678692
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

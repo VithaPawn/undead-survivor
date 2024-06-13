@@ -19,21 +19,21 @@ public class SubWeaponManager : MonoBehaviour {
 
     private void UpgradePool_OnUpgrade(UpgradeData upgradeData)
     {
-        if (upgradeData.GetUpgradeType() == weaponType)
+        if (upgradeData.UpgradeType == weaponType)
         {
             bool isWeaponExist = false;
             foreach (Transform childTransform in transform)
             {
                 if (childTransform.TryGetComponent(out IUpgradeSingle upgradeSingle) &&
-                    upgradeSingle.UpgradeSystemId == upgradeData.GetUpgradeSystemId())
+                    upgradeSingle.UpgradeSystemId == upgradeData.UpgradeSystemId)
                 {
                     isWeaponExist = true;
-                    upgradeSingle.EnhanceUpgrade(upgradeData.GetLevel());
+                    upgradeSingle.EnhanceUpgrade(upgradeData.Level);
                 }
             }
             if (!isWeaponExist)
             {
-                GameObject weaponPrefab = Instantiate(upgradeData.GetAbilityPrefab(), transform);
+                GameObject weaponPrefab = Instantiate(upgradeData.AbilityPrefab, transform);
                 if (weaponPrefab.TryGetComponent(out IUpgradeSingle upgrade)) { upgrade.SetupUpgrade(transform); }
             }
         }
