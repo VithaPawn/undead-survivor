@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FlyingPitchFork 1
   m_EditorClassIdentifier: 
   upgradeType: {fileID: 11400000, guid: a30a9e481721f4c469bb8453edb47f15, type: 2}
-  upgradeSystemId: 2
+  upgradeSystemId: 3
   upgradeName: Flying Pitchfork II
   description: Add a pitchfork on each side. More strength!!!
   icon: {fileID: -1786786079, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}

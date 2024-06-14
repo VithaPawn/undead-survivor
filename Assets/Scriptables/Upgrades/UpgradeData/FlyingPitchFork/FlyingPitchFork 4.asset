@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FlyingPitchFork 4
   m_EditorClassIdentifier: 
   upgradeType: {fileID: 11400000, guid: a30a9e481721f4c469bb8453edb47f15, type: 2}
-  upgradeSystemId: 2
+  upgradeSystemId: 3
   upgradeName: Flying Pitchfork V
   description: "Don\u2019t worry about both sides of your wings; every problem has
     already been solved by your pitchforks"

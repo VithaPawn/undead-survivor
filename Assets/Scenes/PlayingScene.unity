@@ -3749,7 +3749,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 80, y: 0}
+  m_AnchoredPosition: {x: 95, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!1001 &476736338
@@ -5791,7 +5791,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -80, y: 100}
+  m_AnchoredPosition: {x: -95, y: 100}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!1001 &664079631
@@ -6431,7 +6431,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -42}
+  m_AnchoredPosition: {x: -2, y: -45}
   m_SizeDelta: {x: 65, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &707465485
@@ -11270,6 +11270,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 663013584319141465, guid: 1d873636b566ded4faaf7d242f7213a6, type: 3}
   m_PrefabInstance: {fileID: 1176713412}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1185454834
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1185454835}
+  - component: {fileID: 1185454836}
+  m_Layer: 0
+  m_Name: UpgradeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1185454835
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185454834}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1573587738}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1185454836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185454834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01c5b2a225451ac40b1096ee996e3d95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameStateManager: {fileID: 11400000, guid: 9cfe2dd478d48934696d11fa12f5c389, type: 2}
+  pool: {fileID: 11400000, guid: 453c0f6534a23c94894c9d3ebe7c42d2, type: 2}
 --- !u!1 &1194724981
 GameObject:
   m_ObjectHideFlags: 0
@@ -14039,7 +14085,7 @@ MonoBehaviour:
   m_ChildAlignment: 2
   m_StartCorner: 1
   m_StartAxis: 0
-  m_CellSize: {x: 65, y: 65}
+  m_CellSize: {x: 70, y: 70}
   m_Spacing: {x: 20, y: 35}
   m_Constraint: 0
   m_ConstraintCount: 2
@@ -14057,6 +14103,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1414638769}
+  - component: {fileID: 1414638770}
   m_Layer: 0
   m_Name: UpgradeItemTemplate
   m_TagString: Untagged
@@ -14086,6 +14133,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1414638770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414638768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f93198a0ae195e646b85b89a0863e920, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iconImage: {fileID: 1284429199}
+  starsTranform: {fileID: 703797489}
 --- !u!1001 &1417763295
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14671,10 +14732,12 @@ MonoBehaviour:
   replayButton: {fileID: 2145275803}
   scoreText: {fileID: 863020934}
   bestText: {fileID: 707465487}
-  newIcon: {fileID: 0}
-  gameStateManagerSO: {fileID: 11400000, guid: 9cfe2dd478d48934696d11fa12f5c389, type: 2}
+  newIcon: {fileID: 1244025384}
+  upgradeIconList: {fileID: 1405144137}
+  upgradeIconTemplate: {fileID: 1414638769}
   gameMenuStateSO: {fileID: 11400000, guid: d92205ac3c7510e48a0e4ee63deee9ce, type: 2}
   gamePlayingStateSO: {fileID: 11400000, guid: dccf72fac8b0a9b46b1df3c70ca6ae98, type: 2}
+  gameStateManagerSO: {fileID: 11400000, guid: 9cfe2dd478d48934696d11fa12f5c389, type: 2}
   expPoints: {fileID: 11400000, guid: 9b8cbd296eadd0644b4c193d70511702, type: 2}
 --- !u!1 &1535082986
 GameObject:
@@ -14975,6 +15038,7 @@ Transform:
   - {fileID: 1009146902}
   - {fileID: 530906505}
   - {fileID: 1670495377}
+  - {fileID: 1185454835}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

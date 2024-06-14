@@ -14,7 +14,8 @@ public class UpgradeData : ScriptableObject {
     [Header("For Upgrade/Ability Type")]
     [SerializeField] private GameObject abilityPrefab;
     [Header("For Stat Type")]
-    [SerializeField] private float statParameter;
+    [SerializeField] private FloatVariableSO statEntity;
+    [SerializeField] private float additionalStatIndex;
     #endregion Variables
 
     #region Methods
@@ -25,7 +26,7 @@ public class UpgradeData : ScriptableObject {
     public int Level { get { return level; } }
     public List<UpgradeData> NextUpgrade { get { return nextUpgrade; } }
     public GameObject AbilityPrefab { get { return abilityPrefab; } }
-    public float StatParameter { get { return statParameter; } }
+    public float AdditionalStatIndex { get { return additionalStatIndex; } }
     public int UpgradeSystemId { get { return upgradeSystemId; } }
 
 

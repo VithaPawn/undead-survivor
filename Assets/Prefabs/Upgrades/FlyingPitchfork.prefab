@@ -48,7 +48,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 6701577790408491441, guid: 5544ab388b3d9724b88f7273f3d9c831, type: 3}
   shootingWeaponSO: {fileID: 11400000, guid: 80c854a99d86ff14c956178e110d584e, type: 2}
   gameStateManagerSO: {fileID: 11400000, guid: 9cfe2dd478d48934696d11fa12f5c389, type: 2}
-  upgradeSystemId: 1
+  upgradeSystemId: 3
   bulletNumber: 1
   offsetFiringArea: 0.5
   burstTime: 0.1
