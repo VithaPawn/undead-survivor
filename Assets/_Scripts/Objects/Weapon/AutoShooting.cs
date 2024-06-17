@@ -3,6 +3,10 @@ using UnityEngine;
 using UnityEngine.Pool;
 
 public class AutoShooting : MonoBehaviour {
+    #region Constants
+    protected const float DELAY_BEFORE_RELEASE_BULLET = 3f;
+    #endregion Constants
+
     #region Variables
     [Header("Auto Shooting Attributes")]
     [SerializeField] protected Transform firePoint;
@@ -36,6 +40,7 @@ public class AutoShooting : MonoBehaviour {
     private void OnGetFromPool(Bullet pooledBullet)
     {
         pooledBullet.gameObject.SetActive(true);
+        pooledBullet.ReturnToPoolAfterDelay(DELAY_BEFORE_RELEASE_BULLET);
     }
 
     private void OnReleaseToPool(Bullet pooledBullet)
@@ -56,5 +61,6 @@ public class AutoShooting : MonoBehaviour {
         }
     }
 
-    protected virtual void Shoot() { }
+    protected virtual void Shoot() {
+    }
 }

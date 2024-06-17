@@ -4,6 +4,7 @@ using UnityEngine.Pool;
 
 public class ActiveShooting : MonoBehaviour {
     #region Constants
+    protected const float DELAY_BEFORE_RELEASE_BULLET = 3f;
     #endregion Constants
 
     #region Variables
@@ -88,6 +89,7 @@ public class ActiveShooting : MonoBehaviour {
         // Fire bullet
         shootSound.RaiseEvent(firePoint.position);
         bulletObject.MovingForward(weapon.GetWeaponDirectionNormalized(), shootingWeaponSO.shootingForce);
+        StartCoroutine(bulletObject.ReturnToPoolAfterDelay(DELAY_BEFORE_RELEASE_BULLET));
     }
 
     private void Update()

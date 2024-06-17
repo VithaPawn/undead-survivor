@@ -203,4 +203,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d78a922e9dcfe9469ddf67b3d9bac4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCollideWithEnemies: 1
   explodeEffect: {fileID: 11400000, guid: 2fbd9d6afd55faa488e40c6129e8fe67, type: 2}

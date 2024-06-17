@@ -20,15 +20,14 @@ public class UpgradeData : ScriptableObject {
 
     #region Methods
     public UpgradeType UpgradeType { get { return upgradeType; } }
+    public int UpgradeSystemId { get { return upgradeSystemId; } }
     public string UpgradeName { get { return upgradeName; } }
     public string Description { get { return description; } }
     public Sprite Icon { get { return icon; } }
     public int Level { get { return level; } }
     public List<UpgradeData> NextUpgrade { get { return nextUpgrade; } }
     public GameObject AbilityPrefab { get { return abilityPrefab; } }
+    public FloatVariableSO StatEntity { get { return statEntity; } }
     public float AdditionalStatIndex { get { return additionalStatIndex; } }
-    public int UpgradeSystemId { get { return upgradeSystemId; } }
-
-
     #endregion Methods
 }

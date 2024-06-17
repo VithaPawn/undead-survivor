@@ -16,8 +16,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4e793f1abd8fd6d47b571eeb5a7c6749, type: 2}
   - {fileID: 11400000, guid: 5710ae8fa538de942871e87b0044807f, type: 2}
   - {fileID: 11400000, guid: 79fba4f2de6980a438f4ae1d73d15f62, type: 2}
+  - {fileID: 11400000, guid: 2a95d5add314149499d7449c4cd2e845, type: 2}
   availablePool:
-  - {fileID: 11400000, guid: 5710ae8fa538de942871e87b0044807f, type: 2}
-  - {fileID: 11400000, guid: 9b422d85368798042bb421785eaadb9e, type: 2}
-  applyingList:
   - {fileID: 11400000, guid: 4e793f1abd8fd6d47b571eeb5a7c6749, type: 2}
+  - {fileID: 11400000, guid: 79fba4f2de6980a438f4ae1d73d15f62, type: 2}
+  - {fileID: 11400000, guid: 2a95d5add314149499d7449c4cd2e845, type: 2}
+  - {fileID: 11400000, guid: e53b2afc217c2a2419f8e36611014567, type: 2}
+  applyingList:
+  - {fileID: 11400000, guid: 5710ae8fa538de942871e87b0044807f, type: 2}

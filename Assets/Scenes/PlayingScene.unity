@@ -30191,10 +30191,22 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 627342094460884402, guid: 00ec58961511d74409c8eada02001b9a, type: 3}
+      propertyPath: stat
+      value: 
+      objectReference: {fileID: 11400000, guid: 658485c154e50b249954d013aadcc3e7, type: 2}
+    - target: {fileID: 627342094460884402, guid: 00ec58961511d74409c8eada02001b9a, type: 3}
+      propertyPath: upgradePool
+      value: 
+      objectReference: {fileID: 11400000, guid: 453c0f6534a23c94894c9d3ebe7c42d2, type: 2}
     - target: {fileID: 2712768426275645851, guid: 00ec58961511d74409c8eada02001b9a, type: 3}
       propertyPath: cam
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2712768426275645851, guid: 00ec58961511d74409c8eada02001b9a, type: 3}
+      propertyPath: moveSpeed
+      value: 
+      objectReference: {fileID: 11400000, guid: c76b61bd992d8fa4fbcac22d937eb78d, type: 2}
     - target: {fileID: 2712768426275645851, guid: 00ec58961511d74409c8eada02001b9a, type: 3}
       propertyPath: playerHealth
       value: 
@@ -30270,6 +30282,10 @@ PrefabInstance:
     - target: {fileID: 7286250267161871286, guid: 00ec58961511d74409c8eada02001b9a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8049506185460194032, guid: 00ec58961511d74409c8eada02001b9a, type: 3}
+      propertyPath: m_Name
+      value: PlayerAbilitiesManager
       objectReference: {fileID: 0}
     - target: {fileID: 8697444496774047742, guid: 00ec58961511d74409c8eada02001b9a, type: 3}
       propertyPath: m_Camera

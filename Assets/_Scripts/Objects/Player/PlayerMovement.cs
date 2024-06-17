@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour {
     [Header("Camera")]
     [SerializeField] private Camera cam;
     [Header("Movement Attributes")]
-    [SerializeField] private float moveSpeed = 7f;
+    [SerializeField] private FloatVariableSO moveSpeed;
     [SerializeField] private BooleanVariableSO isPlayerTurnRight;
     private Rigidbody2D playerRb;
     private Vector2 mousePosition;
@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour {
         if (gameStateManagerSO.IsGamePlaying() && playerHealth.GetValue() > 0)
         {
             // Change player position
-            playerRb.MovePosition(playerRb.position + moveDirection * moveSpeed * Time.fixedDeltaTime);
+            playerRb.MovePosition(playerRb.position + moveDirection * moveSpeed.GetValue() * Time.fixedDeltaTime);
 
             // Handle what side that player looks at
             Vector2 lookAtDirection = mousePosition - playerRb.position;
