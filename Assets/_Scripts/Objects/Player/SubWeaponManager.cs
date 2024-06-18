@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class SubWeaponManager : MonoBehaviour {
-    [SerializeField] private UpgradeType weaponType;
+    [SerializeField] private UpgradeType subWeaponType;
     [SerializeField] private UpgradePool upgradePool;
     [SerializeField] private GameStateManagerSO gameStateManager;
 
@@ -19,7 +19,7 @@ public class SubWeaponManager : MonoBehaviour {
 
     private void UpgradePool_OnUpgrade(UpgradeData upgradeData)
     {
-        if (upgradeData.UpgradeType == weaponType)
+        if (upgradeData.UpgradeType == subWeaponType)
         {
             bool isWeaponExist = false;
             foreach (Transform childTransform in transform)

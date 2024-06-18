@@ -53,6 +53,5 @@ public class FlyingPitchAbility : AutoShooting, IUpgradeSingle {
         bulletObject.transform.SetPositionAndRotation(firingPoint, bulletRotation);
         // Fire bullet
         bulletObject.MovingForward(shootingDirection, shootingWeaponSO.shootingForce);
-        StartCoroutine(bulletObject.ReturnToPoolAfterDelay(DELAY_BEFORE_RELEASE_BULLET));
     }
 }

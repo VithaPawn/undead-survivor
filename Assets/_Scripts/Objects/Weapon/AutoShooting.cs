@@ -40,7 +40,6 @@ public class AutoShooting : MonoBehaviour {
     private void OnGetFromPool(Bullet pooledBullet)
     {
         pooledBullet.gameObject.SetActive(true);
-        pooledBullet.ReturnToPoolAfterDelay(DELAY_BEFORE_RELEASE_BULLET);
     }
 
     private void OnReleaseToPool(Bullet pooledBullet)

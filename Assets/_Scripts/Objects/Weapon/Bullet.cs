@@ -9,13 +9,17 @@ public class Bullet : MonoBehaviour, IDamageObject {
     private const string OBSTACLE_TAG = "Obstacle";
     #endregion Constants
 
-
+    #region Variables
     [Tooltip("Does bullet expole when colliding with enemies")]
     [SerializeField] private bool isCollideWithEnemies;
     [Header("Explode Effect")]
     [SerializeField] private ParticleSystemChannelSO explodeEffect;
     [Header("Parent Weapon Pool")]
     private IObjectPool<Bullet> objectPool;
+
+    private Coroutine deactiveCoroutine;
+    #endregion Variables
+
     public IObjectPool<Bullet> ObjectPool { set { objectPool = value; } }
 
     public float Damage { get; set; } = 50f;
@@ -44,20 +48,29 @@ public class Bullet : MonoBehaviour, IDamageObject {
     {
         if (!gameObject.activeSelf) return;
         explodeEffect.RaiseEvent(transform.position);
+        if (deactiveCoroutine != null) { 
+            StopCoroutine(deactiveCoroutine);
+            deactiveCoroutine = null;
+        }
         objectPool.Release(this);
     }
 
     public void MovingForward(Vector2 weaponDirection, float shootingForce)
     {
         rb.AddForce(weaponDirection * shootingForce, ForceMode2D.Impulse);
+        if (deactiveCoroutine == null)
+        {
+            deactiveCoroutine = StartCoroutine(ReturnToPoolAfterDelay(3));
+        }
     }
+
     public IEnumerator ReturnToPoolAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        rb.velocity = Vector2.zero;
-        rb.angularVelocity = 0;
         if (gameObject.activeSelf)
         {
+            rb.velocity = Vector2.zero;
+            rb.angularVelocity = 0;
             objectPool.Release(this);
         }
     }

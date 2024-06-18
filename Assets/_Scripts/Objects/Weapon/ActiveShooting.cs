@@ -8,29 +8,42 @@ public class ActiveShooting : MonoBehaviour {
     #endregion Constants
 
     #region Variables
-    // Control shoot action objects
-    [SerializeField] private Transform firePoint;
-    [SerializeField] private Bullet bulletPrefab;
-    [SerializeField] private ShootingWeapon shootingWeaponSO;
-    [SerializeField] private BooleanVariableSO IsPlayerTurnRight;
     [Header("Game State Manager SO")]
     [SerializeField] private GameStateManagerSO GameStateManagerSO;
-    [Header("Time between shots / smaller = higher rate of fire")]
-    private float shootingCooldownMax;
+
+    [Header("Shooting Attributes")]
+    [SerializeField] private BooleanVariableSO IsPlayerTurnRight;
+    [SerializeField] private SoundChannelSO shootSound;
+    [SerializeField] private ShootingWeapon shootingWeaponSO;
+
+    [Header("Bullet Attributes")]
+    [SerializeField] private Transform firePoint;
+    [SerializeField] private Bullet bulletPrefab;
+    private IObjectPool<Bullet> objectPool;
+
+    [Header("Time Between Shots / smaller = higher rate of fire")]
     private float shootingCooldown = 0f;
     private bool isBreakingTime = false;
-    [Header("Object pool of bullet")]
-    private IObjectPool<Bullet> objectPool;
-    [Header("Sound when firing")]
-    [SerializeField] private SoundChannelSO shootSound;
+
+    [Header("Upgrade Attributes")]
+    [SerializeField] private bool isUpgraded = false;
+    [SerializeField] private float shootingCooldownMax;
+    [SerializeField] private float bulletDamage;
+    [SerializeField] private int bulletAmountPerShot;
+
     private Weapon weapon;
     #endregion Variables
 
     private void Awake()
     {
         weapon = GetComponent<Weapon>();
-        shootingCooldownMax = shootingWeaponSO.shootingBreakTime;
         objectPool = new ObjectPool<Bullet>(CreateBullet, OnGetFromPool, OnReleaseToPool, defaultCapacity: 10);
+        if (!isUpgraded)
+        {
+            shootingCooldownMax = shootingWeaponSO.shootingBreakTime;
+            bulletDamage = shootingWeaponSO.bulletDamage;
+            bulletAmountPerShot = 1;
+        }
     }
 
     private void Start()
@@ -47,7 +60,7 @@ public class ActiveShooting : MonoBehaviour {
     {
         Bullet bulletInstance = Instantiate(bulletPrefab);
         bulletInstance.ObjectPool = objectPool;
-        bulletInstance.Damage = shootingWeaponSO.bulletDamage;
+        bulletInstance.Damage = bulletDamage;
         return bulletInstance;
     }
 
@@ -89,7 +102,6 @@ public class ActiveShooting : MonoBehaviour {
         // Fire bullet
         shootSound.RaiseEvent(firePoint.position);
         bulletObject.MovingForward(weapon.GetWeaponDirectionNormalized(), shootingWeaponSO.shootingForce);
-        StartCoroutine(bulletObject.ReturnToPoolAfterDelay(DELAY_BEFORE_RELEASE_BULLET));
     }
 
     private void Update()
@@ -104,4 +116,5 @@ public class ActiveShooting : MonoBehaviour {
             }
         }
     }
+
 }

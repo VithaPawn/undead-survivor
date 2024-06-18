@@ -7,9 +7,9 @@ public class PlayerHealthBar : MonoBehaviour {
     [SerializeField] private FloatVariableSO maxHealthValue;
 
     [Header("Health Bar")]
+    [SerializeField] private RectTransform healthBarParentTransform;
     [SerializeField] private Slider healthBar;
     [SerializeField] private float additionalBarLength = 10;
-    private RectTransform rectTransform;
 
     private void OnEnable()
     {
@@ -21,11 +21,6 @@ public class PlayerHealthBar : MonoBehaviour {
     {
         currentHealthValue.OnChanged -= CurrentHealthValue_OnChanged;
         maxHealthValue.OnChanged -= MaxHealthValue_OnChanged;
-    }
-
-    private void Awake()
-    {
-        rectTransform = GetComponent<RectTransform>();
     }
 
     private void Start()
@@ -50,13 +45,11 @@ public class PlayerHealthBar : MonoBehaviour {
     }
     private void MaxHealthValue_OnChanged()
     {
-        rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x + additionalBarLength, rectTransform.sizeDelta.y);
+        healthBarParentTransform.sizeDelta = new Vector2(healthBarParentTransform.sizeDelta.x + additionalBarLength, healthBarParentTransform.sizeDelta.y);
+        healthBar.value = Mathf.Clamp01(currentHealthValue.GetValue() / maxHealthValue.GetValue());
     }
 
-    private bool IsPlayerFullHealth()
-    {
-        return currentHealthValue.GetValue() == maxHealthValue.GetValue();
-    }
+    private bool IsPlayerFullHealth() => currentHealthValue.GetValue() == maxHealthValue.GetValue();
 
     private bool IsPlayerDead()
     {

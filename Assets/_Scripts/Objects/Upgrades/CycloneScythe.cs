@@ -41,6 +41,5 @@ public class CycloneScythe : AutoShooting, IUpgradeSingle {
         if (bulletObject == null) return;
         bulletObject.transform.SetPositionAndRotation(firePoint.position, Quaternion.identity);
         bulletObject.MovingForward(shootingDirection, shootingWeaponSO.shootingForce);
-        StartCoroutine(bulletObject.ReturnToPoolAfterDelay(DELAY_BEFORE_RELEASE_BULLET));
     }
 }

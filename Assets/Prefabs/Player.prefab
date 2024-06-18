@@ -395,7 +395,6 @@ GameObject:
   - component: {fileID: 8697444496774047742}
   - component: {fileID: 853004777784518134}
   - component: {fileID: 2779772845455565164}
-  - component: {fileID: 5418392275254935333}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -487,21 +486,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &5418392275254935333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2160049120999654445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6e9a52c1f919c94d99ecb9dba5951d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentHealthValue: {fileID: 0}
-  maxHealthValue: {fileID: 0}
-  healthBar: {fileID: 4820648752503165886}
 --- !u!1 &2866839929305097079
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,6 +527,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5849732343629136629}
+  - component: {fileID: 1412638124855521882}
   m_Layer: 0
   m_Name: PlayerCanvas
   m_TagString: Untagged
@@ -566,6 +551,23 @@ Transform:
   m_Father: {fileID: 7286250267161871286}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1412638124855521882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3764199046985708241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6e9a52c1f919c94d99ecb9dba5951d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealthValue: {fileID: 11400000, guid: a5bc91331e7aa7e40976ad5d3c2fb922, type: 2}
+  maxHealthValue: {fileID: 11400000, guid: 3c1e58e30aee3b34e9058ae46bf4b6b5, type: 2}
+  healthBarParentTransform: {fileID: 2817711064922211555}
+  healthBar: {fileID: 4820648752503165886}
+  additionalBarLength: 10
 --- !u!1 &4780536277696280318
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,6 +750,7 @@ GameObject:
   - component: {fileID: 6616665578064740078}
   - component: {fileID: 3192370375127103110}
   - component: {fileID: 627342094460884402}
+  - component: {fileID: 3807709525451679964}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -923,6 +926,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stat: {fileID: 0}
   upgradePool: {fileID: 0}
+--- !u!114 &3807709525451679964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7238411897084836524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aef2b45747c7d5448815b7f5bf8703f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: {fileID: 11400000, guid: a5bc91331e7aa7e40976ad5d3c2fb922, type: 2}
+  maxHealth: {fileID: 11400000, guid: 3c1e58e30aee3b34e9058ae46bf4b6b5, type: 2}
 --- !u!1 &8049506185460194032
 GameObject:
   m_ObjectHideFlags: 0
@@ -934,7 +951,7 @@ GameObject:
   - component: {fileID: 6170569181417331506}
   - component: {fileID: 938176208477486466}
   m_Layer: 0
-  m_Name: PlayerAbilities
+  m_Name: PlayerAbilityManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1051,7 +1068,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 645ffa6f3de857c428a3faa8de01a98b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponType: {fileID: 11400000, guid: a30a9e481721f4c469bb8453edb47f15, type: 2}
+  subWeaponType: {fileID: 11400000, guid: a30a9e481721f4c469bb8453edb47f15, type: 2}
   upgradePool: {fileID: 11400000, guid: 453c0f6534a23c94894c9d3ebe7c42d2, type: 2}
   gameStateManager: {fileID: 11400000, guid: 9cfe2dd478d48934696d11fa12f5c389, type: 2}
 --- !u!1001 &8657471532079331634

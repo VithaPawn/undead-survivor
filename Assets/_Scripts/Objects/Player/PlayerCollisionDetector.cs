@@ -12,10 +12,12 @@ public class PlayerCollisionDetector : MonoBehaviour {
     [SerializeField] private SoundChannelSO hurtSound;
     [Header("Collision")]
     private float damagedDetectTimer;
+    private Collider2D coll;
 
     private void Awake()
     {
         damagedDetectTimer = 0;
+        coll = GetComponent<Collider2D>();
     }
 
     private void Update()
@@ -23,7 +25,7 @@ public class PlayerCollisionDetector : MonoBehaviour {
         Enemy collidedEnemy = GetCollidedEnemy();
         if (collidedEnemy != null && !collidedEnemy.isDie)
         {
-            if (damagedDetectTimer == 0)
+            if (damagedDetectTimer <= 0)
             {
                 hurtSound.RaiseEvent(transform.position);
                 playerHealth.Decrease(collidedEnemy.GetEnemyDamageToPlayer());
@@ -38,7 +40,6 @@ public class PlayerCollisionDetector : MonoBehaviour {
 
     private Enemy GetCollidedEnemy()
     {
-        Collider2D coll = GetComponent<Collider2D>();
         ContactFilter2D filter = new ContactFilter2D().NoFilter();
         List<Collider2D> colliderList = new List<Collider2D>();
         int overlapNumber = Physics2D.OverlapCollider(coll, filter, colliderList);
