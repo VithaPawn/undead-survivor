@@ -48,7 +48,8 @@ public class Bullet : MonoBehaviour, IDamageObject {
     {
         if (!gameObject.activeSelf) return;
         explodeEffect.RaiseEvent(transform.position);
-        if (deactiveCoroutine != null) { 
+        if (deactiveCoroutine != null)
+        {
             StopCoroutine(deactiveCoroutine);
             deactiveCoroutine = null;
         }
@@ -67,11 +68,9 @@ public class Bullet : MonoBehaviour, IDamageObject {
     public IEnumerator ReturnToPoolAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        if (gameObject.activeSelf)
-        {
-            rb.velocity = Vector2.zero;
-            rb.angularVelocity = 0;
-            objectPool.Release(this);
-        }
+        rb.velocity = Vector2.zero;
+        rb.angularVelocity = 0;
+        deactiveCoroutine = null;
+        objectPool.Release(this);
     }
 }

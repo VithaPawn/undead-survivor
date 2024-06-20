@@ -18,10 +18,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 79fba4f2de6980a438f4ae1d73d15f62, type: 2}
   - {fileID: 11400000, guid: 2a95d5add314149499d7449c4cd2e845, type: 2}
   - {fileID: 11400000, guid: 0021bc0357e12c64dac6c0e96be7bc16, type: 2}
+  - {fileID: 11400000, guid: 49ba6610fbc464041b5e5038f7857a7c, type: 2}
   availablePool:
   - {fileID: 11400000, guid: 4e793f1abd8fd6d47b571eeb5a7c6749, type: 2}
   - {fileID: 11400000, guid: 5710ae8fa538de942871e87b0044807f, type: 2}
   - {fileID: 11400000, guid: 79fba4f2de6980a438f4ae1d73d15f62, type: 2}
   - {fileID: 11400000, guid: 2a95d5add314149499d7449c4cd2e845, type: 2}
   - {fileID: 11400000, guid: 0021bc0357e12c64dac6c0e96be7bc16, type: 2}
+  - {fileID: 11400000, guid: 49ba6610fbc464041b5e5038f7857a7c, type: 2}
   applyingList: []

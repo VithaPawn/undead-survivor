@@ -2,15 +2,19 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour {
     // Control visual weapon objects
-    [Header("Main Camera")]
-    [SerializeField] private Camera cam;
     [Header("Is Player Turn Right")]
     [SerializeField] private BooleanVariableSO isPlayerTurnRight;
 
+    private Camera cam;
     private IWeaponHolder weaponHolder;
     private Vector2 mousePosition;
     private Vector2 weaponParentPosition;
     private Vector2 weaponDirection;
+
+    private void Awake()
+    {
+        cam = Camera.main;
+    }
 
     private void Update()
     {
@@ -45,7 +49,33 @@ public class Weapon : MonoBehaviour {
 
     public IWeaponHolder GetWeaponHolder() { return weaponHolder; }
 
-    public void SetWeaponHolder(IWeaponHolder newWeaponHolder) { weaponHolder = newWeaponHolder; }
+    public void SetWeaponHolder(IWeaponHolder newWeaponHolder)
+    {
+        if (weaponHolder != null)
+        {
+            weaponHolder.ClearCurrentWeapon();
+        }
+        if (newWeaponHolder.HasCurrentWeapon())
+        {
+            newWeaponHolder.ClearCurrentWeapon();
+        }
+
+        weaponHolder = newWeaponHolder;
+        newWeaponHolder.SetCurrentWeapon(this);
+
+        transform.parent = newWeaponHolder.GetWeaponFollowTransform();
+        transform.localPosition = Vector3.zero;
+    }
 
     public Vector2 GetWeaponDirectionNormalized() { return weaponDirection.normalized; }
+
+    public void Show()
+    {
+        gameObject.SetActive(true);
+    }
+
+    public void Hide()
+    {
+        gameObject.SetActive(false);
+    }
 }

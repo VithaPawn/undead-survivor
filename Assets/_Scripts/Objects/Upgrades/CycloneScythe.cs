@@ -13,9 +13,9 @@ public class CycloneScythe : AutoShooting, IUpgradeSingle {
         bulletNumber = level;
     }
 
-    public void SetupUpgrade(Transform playerTransform)
+    public void SetupUpgrade(Transform firingPointTransform)
     {
-        firePoint = playerTransform;
+        firePoint = firingPointTransform;
     }
 
     protected override void Shoot()
@@ -40,6 +40,6 @@ public class CycloneScythe : AutoShooting, IUpgradeSingle {
         Bullet bulletObject = objectPool.Get();
         if (bulletObject == null) return;
         bulletObject.transform.SetPositionAndRotation(firePoint.position, Quaternion.identity);
-        bulletObject.MovingForward(shootingDirection, shootingWeaponSO.shootingForce);
+        bulletObject.MovingForward(shootingDirection, shootingWeaponSO.GetShootingForce());
     }
 }

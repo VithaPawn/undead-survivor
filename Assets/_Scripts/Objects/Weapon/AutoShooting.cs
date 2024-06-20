@@ -1,39 +1,35 @@
 using DatabaseSystem.ScriptableObjects;
+using PlayingObjects;
 using UnityEngine;
 using UnityEngine.Pool;
 
 public class AutoShooting : MonoBehaviour {
-    #region Constants
-    protected const float DELAY_BEFORE_RELEASE_BULLET = 3f;
-    #endregion Constants
 
     #region Variables
-    [Header("Auto Shooting Attributes")]
-    [SerializeField] protected Transform firePoint;
-    [SerializeField] protected Bullet bulletPrefab;
-    [SerializeField] protected ShootingWeapon shootingWeaponSO;
-
     [Header("Game State Manager SO")]
     [SerializeField] protected GameStateManagerSO gameStateManagerSO;
+
+    [Header("Shooting Attributes")]
+    [SerializeField] protected ShootingWeapon shootingWeaponSO;
+    [SerializeField] protected Transform firePoint;
 
     [Header("Time between shots / smaller = higher rate of fire")]
     protected float shootingCooldownMax;
     protected float shootingCooldown = 0f;
-    [Header("Object pool of bullet")]
     protected IObjectPool<Bullet> objectPool;
     #endregion Variables
 
     private void Awake()
     {
-        shootingCooldownMax = shootingWeaponSO.shootingBreakTime;
-        objectPool = new ObjectPool<Bullet>(CreateBullet, OnGetFromPool, OnReleaseToPool, defaultCapacity: 10);
+        shootingCooldownMax = shootingWeaponSO.GetShootingCooldown();
+        objectPool = new ObjectPool<Bullet>(CreateBullet, OnGetFromPool, OnReleaseToPool, OnDestroyPooledBullet, defaultCapacity: 10);
     }
 
     private Bullet CreateBullet()
     {
-        Bullet bulletInstance = Instantiate(bulletPrefab);
+        Bullet bulletInstance = Instantiate(shootingWeaponSO.GetBulletPrefab());
         bulletInstance.ObjectPool = objectPool;
-        bulletInstance.Damage = shootingWeaponSO.bulletDamage;
+        bulletInstance.Damage = shootingWeaponSO.GetBulletDamage();
         return bulletInstance;
     }
 
@@ -45,6 +41,11 @@ public class AutoShooting : MonoBehaviour {
     private void OnReleaseToPool(Bullet pooledBullet)
     {
         pooledBullet.gameObject.SetActive(false);
+    }
+
+    private void OnDestroyPooledBullet(Bullet pooledBullet)
+    {
+        Destroy(pooledBullet.gameObject);
     }
 
     private void Update()

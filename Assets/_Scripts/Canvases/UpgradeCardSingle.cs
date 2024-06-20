@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class UpgradeCardSingle : MonoBehaviour {
     #region Variables
-    [SerializeField] private UpgradeData upgradeData;
+    private UpgradeData upgradeData;
     [Header("Children UI")]
     [SerializeField] private Image icon;
     [SerializeField] private TextMeshProUGUI title;
+    [SerializeField] private TextMeshProUGUI information;
     [SerializeField] private TextMeshProUGUI description;
     [SerializeField] private Transform levelColection;
     [SerializeField] private Transform levelIconTemplate;
@@ -84,6 +85,7 @@ public class UpgradeCardSingle : MonoBehaviour {
             icon.enabled = false;
         }
         title.text = upgradeData ? upgradeData.UpgradeName : String.Empty;
+        information.text = upgradeData ? upgradeData.Information : String.Empty;
         description.text = upgradeData ? upgradeData.Description : String.Empty;
         UpdateLevelGUI(upgradeData ? upgradeData.Level : 0);
     }

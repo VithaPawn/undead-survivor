@@ -7,11 +7,12 @@ public class UpgradeData : ScriptableObject {
     [SerializeField] private UpgradeType upgradeType;
     [SerializeField] private int upgradeSystemId;
     [SerializeField] private string upgradeName;
+    [SerializeField] private string information;
     [SerializeField] private string description;
     [SerializeField] private Sprite icon;
     [SerializeField] private int level;
     [SerializeField] private List<UpgradeData> nextUpgrade;
-    [Header("For Upgrade/Ability Type")]
+    [Header("For Weapon/Ability Type")]
     [SerializeField] private GameObject abilityPrefab;
     [Header("For Stat Type")]
     [SerializeField] private FloatVariableSO statEntity;
@@ -22,6 +23,7 @@ public class UpgradeData : ScriptableObject {
     public UpgradeType UpgradeType { get { return upgradeType; } }
     public int UpgradeSystemId { get { return upgradeSystemId; } }
     public string UpgradeName { get { return upgradeName; } }
+    public string Information { get { return information; } }
     public string Description { get { return description; } }
     public Sprite Icon { get { return icon; } }
     public int Level { get { return level; } }

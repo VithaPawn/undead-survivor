@@ -1,35 +1,29 @@
 using DatabaseSystem.ScriptableObjects;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Pool;
 
 public class ActiveShooting : MonoBehaviour {
-    #region Constants
-    protected const float DELAY_BEFORE_RELEASE_BULLET = 3f;
-    #endregion Constants
 
     #region Variables
     [Header("Game State Manager SO")]
     [SerializeField] private GameStateManagerSO GameStateManagerSO;
 
     [Header("Shooting Attributes")]
-    [SerializeField] private BooleanVariableSO IsPlayerTurnRight;
-    [SerializeField] private SoundChannelSO shootSound;
     [SerializeField] private ShootingWeapon shootingWeaponSO;
+    [SerializeField] private BooleanVariableSO IsPlayerTurnRight;
+    [SerializeField] private float burstTime = 0.1f;
 
     [Header("Bullet Attributes")]
     [SerializeField] private Transform firePoint;
-    [SerializeField] private Bullet bulletPrefab;
     private IObjectPool<Bullet> objectPool;
+    private float bulletDamage;
+    private int bulletAmountPerShot;
 
     [Header("Time Between Shots / smaller = higher rate of fire")]
+    private float shootingCooldownMax;
     private float shootingCooldown = 0f;
-    private bool isBreakingTime = false;
-
-    [Header("Upgrade Attributes")]
-    [SerializeField] private bool isUpgraded = false;
-    [SerializeField] private float shootingCooldownMax;
-    [SerializeField] private float bulletDamage;
-    [SerializeField] private int bulletAmountPerShot;
+    private bool isCooldown = false;
 
     private Weapon weapon;
     #endregion Variables
@@ -37,13 +31,7 @@ public class ActiveShooting : MonoBehaviour {
     private void Awake()
     {
         weapon = GetComponent<Weapon>();
-        objectPool = new ObjectPool<Bullet>(CreateBullet, OnGetFromPool, OnReleaseToPool, defaultCapacity: 10);
-        if (!isUpgraded)
-        {
-            shootingCooldownMax = shootingWeaponSO.shootingBreakTime;
-            bulletDamage = shootingWeaponSO.bulletDamage;
-            bulletAmountPerShot = 1;
-        }
+        SetupShootingForWeapon(shootingWeaponSO);
     }
 
     private void Start()
@@ -56,9 +44,17 @@ public class ActiveShooting : MonoBehaviour {
         GameInput.Instance.OnShoot -= GameInput_OnShoot;
     }
 
+    public void SetupShootingForWeapon(ShootingWeapon weapon)
+    {
+        shootingCooldownMax = weapon.GetShootingCooldown();
+        bulletDamage = weapon.GetBulletDamage();
+        bulletAmountPerShot = weapon.GetBulletAmountPerShot();
+        objectPool = new ObjectPool<Bullet>(CreateBullet, OnGetFromPool, OnReleaseToPool, defaultCapacity: 10);
+    }
+
     private Bullet CreateBullet()
     {
-        Bullet bulletInstance = Instantiate(bulletPrefab);
+        Bullet bulletInstance = Instantiate(shootingWeaponSO.GetBulletPrefab());
         bulletInstance.ObjectPool = objectPool;
         bulletInstance.Damage = bulletDamage;
         return bulletInstance;
@@ -84,11 +80,28 @@ public class ActiveShooting : MonoBehaviour {
 
     private void Shoot()
     {
-        if (isBreakingTime)
+        if (isCooldown)
         {
             return;
         }
-        isBreakingTime = true;
+        isCooldown = true;
+
+        float burstTimeCounter = 0f;
+        for (int i = 0; i < bulletAmountPerShot; i++)
+        {
+            StartCoroutine(ShootBurstly(burstTimeCounter));
+            burstTimeCounter += burstTime;
+        }
+    }
+
+    private IEnumerator ShootBurstly(float time)
+    {
+        yield return new WaitForSeconds(time);
+        ShootSingle();
+    }
+
+    private void ShootSingle()
+    {
         //Set bullet rotation
         Quaternion bulletRotation = transform.rotation;
         if (!IsPlayerTurnRight.GetValue())
@@ -98,20 +111,23 @@ public class ActiveShooting : MonoBehaviour {
         //Get bullet from pool
         Bullet bulletObject = objectPool.Get();
         if (bulletObject == null) return;
-        bulletObject.transform.SetPositionAndRotation(firePoint.position, bulletRotation);
         // Fire bullet
-        shootSound.RaiseEvent(firePoint.position);
-        bulletObject.MovingForward(weapon.GetWeaponDirectionNormalized(), shootingWeaponSO.shootingForce);
+        bulletObject.transform.SetPositionAndRotation(firePoint.position, bulletRotation);
+        if (shootingWeaponSO.GetShootSound())
+        {
+            shootingWeaponSO.GetShootSound().RaiseEvent(firePoint.position);
+        }
+        bulletObject.MovingForward(weapon.GetWeaponDirectionNormalized(), shootingWeaponSO.GetShootingForce());
     }
 
     private void Update()
     {
-        if (isBreakingTime)
+        if (isCooldown)
         {
             shootingCooldown += Time.deltaTime;
             if (shootingCooldown >= shootingCooldownMax)
             {
-                isBreakingTime = false;
+                isCooldown = false;
                 shootingCooldown = 0f;
             }
         }

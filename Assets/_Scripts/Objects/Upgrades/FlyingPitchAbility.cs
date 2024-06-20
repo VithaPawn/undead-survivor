@@ -52,6 +52,6 @@ public class FlyingPitchAbility : AutoShooting, IUpgradeSingle {
         if (bulletObject == null) return;
         bulletObject.transform.SetPositionAndRotation(firingPoint, bulletRotation);
         // Fire bullet
-        bulletObject.MovingForward(shootingDirection, shootingWeaponSO.shootingForce);
+        bulletObject.MovingForward(shootingDirection, shootingWeaponSO.GetShootingForce());
     }
 }

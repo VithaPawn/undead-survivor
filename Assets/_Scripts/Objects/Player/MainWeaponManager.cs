@@ -7,27 +7,30 @@ public class MainWeaponManager : MonoBehaviour, IWeaponHolder {
 
     [Header("Weapon Manager")]
     [SerializeField] private Transform weaponHoldPoint;
-    [SerializeField] private Weapon currentWeapon;
-    private ActiveShooting shootingActive;
+    [SerializeField] private Weapon weaponPrefab;
+    private Weapon currentWeapon;
 
     [Header("Upgrade Attributes")]
     [SerializeField] private UpgradeType mainWeaponType;
     [SerializeField] private UpgradePool upgradePool;
 
-    private void Start()
-    {
-        if (currentWeapon != null)
-        {
-
-            GetCurrentWeapon().SetWeaponHolder(this);
-        }
-    }
-
     private void OnEnable()
     {
+        if (currentWeapon == null)
+        {
+            if (weaponHoldPoint.GetChild(0).TryGetComponent(out Weapon weapon))
+            {
+                weapon.SetWeaponHolder(this);
+            }
+            else
+            {
+                Weapon newWeapon = Instantiate(weaponPrefab);
+                newWeapon.SetWeaponHolder(this);
+            }
+        }
         if (currentWeapon != null)
         {
-            GetCurrentWeapon().gameObject.SetActive(true);
+            GetCurrentWeapon().Show();
         }
         playerHealth.OnChanged += PlayerHealth_OnChanged;
         upgradePool.OnUpgrade += UpgradePool_OnUpgrade;
@@ -44,24 +47,25 @@ public class MainWeaponManager : MonoBehaviour, IWeaponHolder {
     {
         if (playerHealth.GetValue() <= 0)
         {
-            GetCurrentWeapon().gameObject.SetActive(false);
+            GetCurrentWeapon().Hide();
         }
     }
+
     private void UpgradePool_OnUpgrade(UpgradeData upgradeData)
     {
-        if (upgradeData.UpgradeType == mainWeaponType)
+        if (upgradeData.UpgradeType == mainWeaponType && upgradeData.AbilityPrefab.TryGetComponent(out Weapon weapon))
         {
-            if (!currentWeapon)
+            if (!HasCurrentWeapon())
             {
-                shootingActive = GetComponent<ActiveShooting>();
-
+                weapon.SetWeaponHolder(this);
+                return;
             }
-            foreach (Transform childTransform in transform)
+            if (HasCurrentWeapon())
             {
-                if (childTransform.TryGetComponent(out IUpgradeSingle upgradeSingle) &&
-                    upgradeSingle.UpgradeSystemId == upgradeData.UpgradeSystemId)
+                IUpgradeSingle presentUpgrade = currentWeapon.GetComponent<IUpgradeSingle>();
+                if (presentUpgrade != null && presentUpgrade.UpgradeSystemId == upgradeData.UpgradeSystemId)
                 {
-                    upgradeSingle.EnhanceUpgrade(upgradeData.Level);
+                    presentUpgrade.EnhanceUpgrade(upgradeData.Level);
                 }
             }
         }
