@@ -1,5 +1,6 @@
 using DatabaseSystem.ScriptableObjects;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class CoinManager : MonoBehaviour {
     #region Singleton
@@ -7,9 +8,12 @@ public class CoinManager : MonoBehaviour {
     #endregion Singleton
 
     #region Variables
-    [SerializeField] private Transform coinsParent;
+    [SerializeField] private Transform coinStoreTransform;
     [Header("Game State Manager")]
     [SerializeField] private GameStateManagerSO gameStateManagerSO;
+
+    [SerializeField] private Coin coinPrefab;
+    protected IObjectPool<Coin> coinPool;
     #endregion Variables
 
     #region Methods
@@ -45,15 +49,43 @@ public class CoinManager : MonoBehaviour {
 
     public void GenerateCoin(ExpPoint expSO, Vector3 spawnPosition)
     {
-        Coin.SpawnCoin(expSO, spawnPosition, coinsParent);
+        Coin coinInstance = coinPool.Get();
+        coinInstance.transform.SetParent(coinStoreTransform);
+        coinInstance.SpawnCoin(expSO, spawnPosition);
+    }
+
+    private void Start()
+    {
+        coinPool = new ObjectPool<Coin>(CreateCoin, OnGetFromPool, OnReleaseToPool, OnDestroyPooledCoin, defaultCapacity: 100);
     }
 
     private void ClearCoins()
     {
-        foreach (Transform coinTransform in coinsParent)
+        foreach (Transform coinTransform in coinStoreTransform)
         {
             Destroy(coinTransform.gameObject);
         }
+    }
+    private Coin CreateCoin()
+    {
+        Coin coinInstance = Instantiate(coinPrefab, transform);
+        coinInstance.CoinPool = coinPool;
+        return coinInstance;
+    }
+
+    private void OnGetFromPool(Coin pooledCoin)
+    {
+        pooledCoin.gameObject.SetActive(true);
+    }
+
+    private void OnReleaseToPool(Coin pooledCoin)
+    {
+        pooledCoin.gameObject.SetActive(false);
+    }
+
+    private void OnDestroyPooledCoin(Coin pooledCoin)
+    {
+        Destroy(pooledCoin.gameObject);
     }
     #endregion Methods
 }

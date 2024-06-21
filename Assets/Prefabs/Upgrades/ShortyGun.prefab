@@ -146,7 +146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 923f4a72f38807647b6f67d3ebdcdd5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
   isPlayerTurnRight: {fileID: 11400000, guid: 1b0f1f9c47088ad4e99c21046120335c, type: 2}
 --- !u!114 &6848415490110235616
 MonoBehaviour:
@@ -160,17 +159,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ac79173918410d47bf3040df0dc0531, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameStateManagerSO: {fileID: 11400000, guid: 9cfe2dd478d48934696d11fa12f5c389, type: 2}
+  gameStateManagerSO: {fileID: 11400000, guid: 9cfe2dd478d48934696d11fa12f5c389, type: 2}
   shootingWeaponSO: {fileID: 11400000, guid: 60b8bb65cb7e69e4b991af78ea0cd7a6, type: 2}
-  IsPlayerTurnRight: {fileID: 11400000, guid: 1b0f1f9c47088ad4e99c21046120335c, type: 2}
   firePoint: {fileID: 5997772214828542400}
+  IsPlayerTurnRight: {fileID: 11400000, guid: 1b0f1f9c47088ad4e99c21046120335c, type: 2}
+  burstTime: 0.1
   upgradeSystemId: 6
   shortyGunUpgrades:
   - {fileID: 11400000, guid: 3e53dd64f9970e24cb8fc9d4a8e365d5, type: 2}
   - {fileID: 11400000, guid: 8f495ae7b5eec4c46bcda9f61be2ec83, type: 2}
   - {fileID: 11400000, guid: 545e4b36edc59e74eabf92ff3152db76, type: 2}
   - {fileID: 11400000, guid: 715ff0a372563fa4dac72b8d27e7830b, type: 2}
-  - {fileID: 11400000, guid: dbf4664b4f0c4714db33e472eaf17e78, type: 2}
 --- !u!1 &7743838825418638620
 GameObject:
   m_ObjectHideFlags: 0

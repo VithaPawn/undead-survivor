@@ -1,5 +1,7 @@
 using DatabaseSystem.ScriptableObjects;
 using UnityEngine;
+using UnityEngine.Pool;
+using UnityEngine.Rendering;
 
 public class Coin : MonoBehaviour, ICollectable {
 
@@ -9,11 +11,12 @@ public class Coin : MonoBehaviour, ICollectable {
 
     #region Variables
     [SerializeField] private FloatVariableSO experienceTotal;
-    private ExpPoint expSO;
-    private CoinVisual visual;
+    private ExpPoint coinSO;
     private Rigidbody2D rb;
     private bool hasTarget;
     private Vector3 targetPosition;
+    [Header("Parent Coin Pool")]
+    private IObjectPool<Coin> coinPool;
     #endregion Variables
 
     #region Methods
@@ -31,27 +34,19 @@ public class Coin : MonoBehaviour, ICollectable {
         }
     }
 
-    #region Spawn
+    public IObjectPool<Coin> CoinPool { set { coinPool = value; } }
 
-    public static void SpawnCoin(ExpPoint expSO, Vector3 spawnPosition, Transform parentObject)
+    public void SpawnCoin(ExpPoint coinData, Vector3 spawnPosition)
     {
-        Coin newEP = Instantiate(expSO.prefab, spawnPosition, Quaternion.identity);
-        newEP.Initialize(expSO);
-        if (parentObject) { newEP.transform.SetParent(parentObject); }
-    }
-
-    private void Initialize(ExpPoint expSO)
-    {
-        this.expSO = expSO;
-        visual = GetComponentInChildren<CoinVisual>();
+        coinSO = coinData;
+        CoinVisual visual = GetComponentInChildren<CoinVisual>();
         visual.Initialize();
     }
-    #endregion Spawn
 
     #region Collect
     public void Collect()
     {
-        experienceTotal.Increase(expSO.point);
+        experienceTotal.Increase(coinSO.point);
         Destroy(gameObject);
     }
 
@@ -70,7 +65,7 @@ public class Coin : MonoBehaviour, ICollectable {
     #endregion Collect
 
     #region VariableGetters
-    public ExpPoint getExpSo() { return expSO; }
+    public ExpPoint getCoinSO() { return coinSO; }
     #endregion VariableGetters
     #endregion Methods
 }

@@ -1,34 +1,42 @@
+using DatabaseSystem.ScriptableObjects;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class FlyingPitchAbility : AutoShooting, IUpgradeSingle {
+
     [Header("Flying Pitchfork Attributes")]
     [SerializeField] private int upgradeSystemId;
-    [SerializeField] private int bulletNumber = 1;
     [SerializeField] private float offsetFiringArea = 0.5f;
     [SerializeField] private float burstTime = 0.1f;
+
+    [Header("Upgrade List")]
+    [SerializeField] List<ShootingWeapon> pitchforkUpgrades;
 
     public int UpgradeSystemId { get => upgradeSystemId; set => upgradeSystemId = value; }
 
     public void EnhanceUpgrade(int level)
     {
-        bulletNumber = level;
+        if (level <= pitchforkUpgrades.Count)
+        {
+            SetupShootingWeapon(pitchforkUpgrades[level - 1]);
+        }
     }
 
-    public void SetupUpgrade(Transform playerTransform)
+    public void SetupUpgrade(Transform firingPointTransform)
     {
-        firePoint = playerTransform;
+        firePoint = firingPointTransform;
     }
 
     protected override void Shoot()
     {
-        if (bulletNumber == 0)
+        if (bulletAmountPerShot == 0)
         {
             Debug.LogError("The bullet number of FlyingPitchfork ability is equal 0");
             return;
         }
         float burstTimeCounter = 0f;
-        for (int i = 0; i < bulletNumber; i++)
+        for (int i = 0; i < bulletAmountPerShot; i++)
         {
             StartCoroutine(ShootBurstly(burstTimeCounter));
             burstTimeCounter += burstTime;

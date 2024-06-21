@@ -1,16 +1,24 @@
+using DatabaseSystem.ScriptableObjects;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CycloneScythe : AutoShooting, IUpgradeSingle {
+
     [Header("Cyclone Scythe Attributes")]
     [SerializeField] private int upgradeSystemId;
-    [SerializeField] private int bulletNumber = 1;
     [SerializeField] private Vector2[] bulletDirections;
+
+    [Header("Upgrade List")]
+    [SerializeField] List<ShootingWeapon> scytheUpgrades;
 
     public int UpgradeSystemId { get => upgradeSystemId; set => upgradeSystemId = value; }
 
     public void EnhanceUpgrade(int level)
     {
-        bulletNumber = level;
+        if (level <= scytheUpgrades.Count)
+        {
+            SetupShootingWeapon(scytheUpgrades[level - 1]);
+        }
     }
 
     public void SetupUpgrade(Transform firingPointTransform)
@@ -20,12 +28,12 @@ public class CycloneScythe : AutoShooting, IUpgradeSingle {
 
     protected override void Shoot()
     {
-        if (bulletNumber == 0)
+        if (bulletAmountPerShot == 0)
         {
             Debug.LogError("The bullet number of CycloneScythe ability is equal 0");
             return;
         }
-        for (int i = 0; i < bulletNumber; i++)
+        for (int i = 0; i < bulletAmountPerShot; i++)
         {
             if (i < bulletDirections.Length)
             {

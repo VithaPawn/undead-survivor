@@ -44,14 +44,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf4fc4c1685155d48b7745b05ba2069c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePoint: {fileID: 0}
-  bulletPrefab: {fileID: 3364886425887186713, guid: 4ce6c859cbd3e4947950830d674f6d97, type: 3}
-  shootingWeaponSO: {fileID: 11400000, guid: ff0b4947a08413743916c5deedf8d277, type: 2}
   gameStateManagerSO: {fileID: 11400000, guid: 9cfe2dd478d48934696d11fa12f5c389, type: 2}
+  shootingWeaponSO: {fileID: 11400000, guid: ff0b4947a08413743916c5deedf8d277, type: 2}
+  firePoint: {fileID: 0}
   upgradeSystemId: 2
-  bulletNumber: 1
   bulletDirections:
   - {x: 1, y: 1}
   - {x: 1, y: -1}
   - {x: -1, y: 1}
   - {x: -1, y: -1}
+  scytheUpgrades:
+  - {fileID: 11400000, guid: ff0b4947a08413743916c5deedf8d277, type: 2}
+  - {fileID: 11400000, guid: 42fecd3e762d7474d93588eb544dc97f, type: 2}
+  - {fileID: 11400000, guid: 62dd4b1958f59684b946f976a71a9fa5, type: 2}
+  - {fileID: 11400000, guid: 7dc8f5ac3f0b0c9479ab7c258cb894be, type: 2}

@@ -12,7 +12,7 @@ public class CoinVisual : MonoBehaviour {
 
     public void Initialize()
     {
-        SetSprite(_experiencePoint.getExpSo().sprite);
+        SetSprite(_experiencePoint.getCoinSO().sprite);
     }
 
     private void SetSprite(Sprite sprite)

@@ -6,7 +6,7 @@ using UnityEngine;
 public class ShortyGun : ActiveShooting, IUpgradeSingle {
     [Header("Upgrade System ID")]
     [SerializeField] private int upgradeSystemId;
-    [Header("Upgrade List")]
+    [Header("Gun Upgrade List")]
     [SerializeField] List<ShootingWeapon> shortyGunUpgrades;
 
     public int UpgradeSystemId { get => upgradeSystemId; set => upgradeSystemId = value; }
@@ -15,7 +15,7 @@ public class ShortyGun : ActiveShooting, IUpgradeSingle {
     {
         if (level <= shortyGunUpgrades.Count)
         {
-            SetupShootingForWeapon(shortyGunUpgrades[level - 1]); 
+            SetupShootingWeapon(shortyGunUpgrades[level - 1]); 
         }   
     }
 

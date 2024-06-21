@@ -11,11 +11,15 @@ public class PlayingCanvas : BaseCanvas {
     [Header("Children UIs")]
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private Slider expBar;
+    [SerializeField] private TextMeshProUGUI killAmountText;
 
     [Header("Experience Point")]
     [SerializeField] private FloatVariableSO expTotal;
     [SerializeField] private FloatVariableSO expRequired;
     [SerializeField] private FloatVariableSO expFloor;
+
+    [Header("Kill Amount")]
+    [SerializeField] private FloatVariableSO killAmount;
 
     [Header("Game State Manager")]
     [SerializeField] private GameStateManagerSO gameStateManagerSO;
@@ -26,18 +30,21 @@ public class PlayingCanvas : BaseCanvas {
     private void Awake()
     {
         expBar.value = 0f;
+        killAmountText.text = "0";
     }
 
     private void OnEnable()
     {
         expTotal.OnChanged += ExperienceTotal_Changed;
         gameStateManagerSO.OnChanged += GameStateManagerSO_OnChanged;
+        killAmount.OnChanged += KillAmount_OnChanged;
     }
 
     private void OnDisable()
     {
         expTotal.OnChanged -= ExperienceTotal_Changed;
         gameStateManagerSO.OnChanged -= GameStateManagerSO_OnChanged;
+        killAmount.OnChanged -= KillAmount_OnChanged;
     }
 
     private void Start()
@@ -73,6 +80,11 @@ public class PlayingCanvas : BaseCanvas {
     {
         UpdateExpBar();
     }
+
+    private void KillAmount_OnChanged()
+    {
+        UpdateKillAmountText("");
+    }
     #endregion Point
 
     #region UI
@@ -81,6 +93,7 @@ public class PlayingCanvas : BaseCanvas {
         if (gameStateManagerSO.IsGamePlaying())
         {
             UpdateExpBar();
+            UpdateKillAmountText("0");
             Show();
         }
         else
@@ -99,6 +112,11 @@ public class PlayingCanvas : BaseCanvas {
         float relativeExpRequired = expRequired.GetValue() - expFloor.GetValue();
         float relativeExpTotal = expTotal.GetValue() - expFloor.GetValue();
         expBar.value = GetPercentageBetweenTwoNumbers(relativeExpRequired, relativeExpTotal);
+    }
+
+    private void UpdateKillAmountText(string defaultValue)
+    {
+        killAmountText.text = defaultValue != "" ? defaultValue : killAmount.GetValue().ToString();
     }
     #endregion UI
 

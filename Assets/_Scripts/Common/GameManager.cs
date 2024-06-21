@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour {
     [Header("Information need to reset")]
     [SerializeField] private FloatVariableSO playerHealth;
     [SerializeField] private UpgradePool upgradePool;
+    [SerializeField] private FloatVariableSO killAmount;
     [Header("Playing Time Counter")]
     private float playingTimeCounter = 0f;
     [Header("Player")]
@@ -86,6 +87,7 @@ public class GameManager : MonoBehaviour {
             playingTimeCounter = 0f;
             playerHealth.ResetValue();
             upgradePool.ResetAvailablePool();
+            killAmount.ResetValue();
             playerObject.transform.position = Vector3.zero;
             playerObject.SetActive(true);
         }
