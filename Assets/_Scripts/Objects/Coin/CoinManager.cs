@@ -27,6 +27,7 @@ public class CoinManager : MonoBehaviour {
         {
             Instance = this;
         }
+        coinPool = new ObjectPool<Coin>(CreateCoin, OnGetFromPool, OnReleaseToPool, OnDestroyPooledCoin, defaultCapacity: 100);
     }
 
     private void OnEnable()
@@ -51,24 +52,23 @@ public class CoinManager : MonoBehaviour {
     {
         Coin coinInstance = coinPool.Get();
         coinInstance.transform.SetParent(coinStoreTransform);
-        coinInstance.SpawnCoin(expSO, spawnPosition);
-    }
-
-    private void Start()
-    {
-        coinPool = new ObjectPool<Coin>(CreateCoin, OnGetFromPool, OnReleaseToPool, OnDestroyPooledCoin, defaultCapacity: 100);
+        coinInstance.transform.position = spawnPosition;
+        coinInstance.SetCoinValue(expSO);
     }
 
     private void ClearCoins()
     {
         foreach (Transform coinTransform in coinStoreTransform)
         {
-            Destroy(coinTransform.gameObject);
+            if (coinTransform.TryGetComponent(out Coin coin) && coin.gameObject.activeSelf)
+            {
+                coinPool.Release(coin);
+            }
         }
     }
     private Coin CreateCoin()
     {
-        Coin coinInstance = Instantiate(coinPrefab, transform);
+        Coin coinInstance = Instantiate(coinPrefab);
         coinInstance.CoinPool = coinPool;
         return coinInstance;
     }

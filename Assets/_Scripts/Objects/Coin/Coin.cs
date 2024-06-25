@@ -11,8 +11,8 @@ public class Coin : MonoBehaviour, ICollectable {
 
     #region Variables
     [SerializeField] private FloatVariableSO experienceTotal;
-    private ExpPoint coinSO;
     private Rigidbody2D rb;
+    private ExpPoint coinSO;
     private bool hasTarget;
     private Vector3 targetPosition;
     [Header("Parent Coin Pool")]
@@ -23,7 +23,12 @@ public class Coin : MonoBehaviour, ICollectable {
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void OnEnable()
+    {
         hasTarget = false;
+        coinSO = null;
     }
 
     private void FixedUpdate()
@@ -36,18 +41,19 @@ public class Coin : MonoBehaviour, ICollectable {
 
     public IObjectPool<Coin> CoinPool { set { coinPool = value; } }
 
-    public void SpawnCoin(ExpPoint coinData, Vector3 spawnPosition)
+    public void SetCoinValue(ExpPoint coinData)
     {
         coinSO = coinData;
         CoinVisual visual = GetComponentInChildren<CoinVisual>();
         visual.Initialize();
     }
 
-    #region Collect
     public void Collect()
     {
         experienceTotal.Increase(coinSO.point);
-        Destroy(gameObject);
+        rb.velocity = Vector2.zero;
+        rb.angularVelocity = 0;
+        coinPool.Release(this);
     }
 
     private void MoveToTarget()
@@ -62,10 +68,7 @@ public class Coin : MonoBehaviour, ICollectable {
         targetPosition = position;
     }
 
-    #endregion Collect
-
-    #region VariableGetters
     public ExpPoint getCoinSO() { return coinSO; }
-    #endregion VariableGetters
+
     #endregion Methods
 }

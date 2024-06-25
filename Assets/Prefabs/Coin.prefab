@@ -112,7 +112,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: -1
-  runOnlyOnce: 1
+  runOnlyOnce: 0
+  runEachTimeEnable: 1
 --- !u!95 &5267691323267116658
 Animator:
   serializedVersion: 5

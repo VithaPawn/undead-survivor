@@ -9,6 +9,8 @@ public class PositionRendererSorter : MonoBehaviour {
     #region Variables
     [SerializeField] private int offset;
     [SerializeField] private bool runOnlyOnce = false;
+    [SerializeField] private bool runEachTimeEnable = false;
+    private bool isSorted = false;
     private Renderer myRenderer;
     #endregion Variables
 
@@ -18,13 +20,27 @@ public class PositionRendererSorter : MonoBehaviour {
         myRenderer = gameObject.GetComponent<Renderer>();
     }
 
+    private void OnEnable()
+    {
+        isSorted = true;
+    }
+
     private void LateUpdate()
     {
-        myRenderer.sortingOrder = (int)(transform.position.y * SORTING_LAYER_MULTIPLIER + offset);
+        if (isSorted)
+        {
+            SortRender();
+            if (runEachTimeEnable ) { isSorted = false; }
+        }
         if (runOnlyOnce)
         {
             Destroy(this);
         }
+    }
+
+    private void SortRender()
+    {
+        myRenderer.sortingOrder = (int)(transform.position.y * SORTING_LAYER_MULTIPLIER + offset);
     }
     #endregion Methods
 }

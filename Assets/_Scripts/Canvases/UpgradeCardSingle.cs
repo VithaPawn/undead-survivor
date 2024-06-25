@@ -10,7 +10,6 @@ public class UpgradeCardSingle : MonoBehaviour {
     [SerializeField] private Image icon;
     [SerializeField] private TextMeshProUGUI title;
     [SerializeField] private TextMeshProUGUI information;
-    [SerializeField] private TextMeshProUGUI description;
     [SerializeField] private Transform levelColection;
     [SerializeField] private Transform levelIconTemplate;
     [Header("Background")]
@@ -86,7 +85,6 @@ public class UpgradeCardSingle : MonoBehaviour {
         }
         title.text = upgradeData ? upgradeData.UpgradeName : String.Empty;
         information.text = upgradeData ? upgradeData.Information : String.Empty;
-        description.text = upgradeData ? upgradeData.Description : String.Empty;
         UpdateLevelGUI(upgradeData ? upgradeData.Level : 0);
     }
 
