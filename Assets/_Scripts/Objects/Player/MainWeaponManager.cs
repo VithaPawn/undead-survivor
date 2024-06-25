@@ -10,13 +10,16 @@ public class MainWeaponManager : MonoBehaviour, IWeaponHolder {
     [SerializeField] private Weapon weaponPrefab;
     private Weapon currentWeapon;
 
+    [Header("Game State Manager")]
+    [SerializeField] private GameStateManagerSO gameStateManager;
+
     [Header("Upgrade Attributes")]
     [SerializeField] private UpgradeType mainWeaponType;
     [SerializeField] private UpgradePool upgradePool;
 
     private void OnEnable()
     {
-        if (currentWeapon == null)
+        if (!HasCurrentWeapon())
         {
             if (weaponHoldPoint.GetChild(0).TryGetComponent(out Weapon weapon))
             {
@@ -28,27 +31,14 @@ public class MainWeaponManager : MonoBehaviour, IWeaponHolder {
                 newWeapon.SetWeaponHolder(this);
             }
         }
-        if (currentWeapon != null)
-        {
-            GetCurrentWeapon().Show();
-        }
-        playerHealth.OnChanged += PlayerHealth_OnChanged;
         upgradePool.OnUpgrade += UpgradePool_OnUpgrade;
+        gameStateManager.OnChanged += GameStateManager_OnChanged;
     }
-
 
     private void OnDisable()
     {
-        playerHealth.OnChanged -= PlayerHealth_OnChanged;
         upgradePool.OnUpgrade -= UpgradePool_OnUpgrade;
-    }
-
-    private void PlayerHealth_OnChanged()
-    {
-        if (playerHealth.GetValue() <= 0)
-        {
-            GetCurrentWeapon().Hide();
-        }
+        gameStateManager.OnChanged -= GameStateManager_OnChanged;
     }
 
     private void UpgradePool_OnUpgrade(UpgradeData upgradeData)
@@ -62,12 +52,21 @@ public class MainWeaponManager : MonoBehaviour, IWeaponHolder {
             }
             if (HasCurrentWeapon())
             {
-                IUpgradeSingle presentUpgrade = currentWeapon.GetComponent<IUpgradeSingle>();
-                if (presentUpgrade != null && presentUpgrade.UpgradeSystemId == upgradeData.UpgradeSystemId)
+                IUpgradeSingle currentUpgrade = currentWeapon.GetComponent<IUpgradeSingle>();
+                if (currentUpgrade != null && currentUpgrade.UpgradeSystemId == upgradeData.UpgradeSystemId)
                 {
-                    presentUpgrade.EnhanceUpgrade(upgradeData.Level);
+                    currentUpgrade.EnhanceUpgrade(upgradeData.Level);
                 }
             }
+        }
+    }
+
+    private void GameStateManager_OnChanged()
+    {
+        if (gameStateManager.IsGamePlaying())
+        {
+            IUpgradeSingle currentUpgrade = GetCurrentWeapon().GetComponent<IUpgradeSingle>();
+            currentUpgrade.SetupUpgrade(transform);
         }
     }
 

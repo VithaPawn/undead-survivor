@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 6
   shootingForce: 22
-  shootingCooldown: 0.4
+  shootingCooldown: 0.8
   bulletPrefab: {fileID: 9176584418623750042, guid: 6602f3d7252bb4e4ea40dbac7208b1d2, type: 3}
-  bulletDamage: 60
+  bulletDamage: 70
   bulletAmountPerShot: 2
   shootSound: {fileID: 11400000, guid: 248658c9991a5f34fa0e92679aaf5d22, type: 2}

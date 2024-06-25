@@ -28117,7 +28117,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83e2ad99e6646174fba3fb5bfe2036f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyExplodeEvent: {fileID: 11400000, guid: 20efcc35d4c917a439291d0a4faaeea9, type: 2}
   _bulletExplodeEvent: {fileID: 11400000, guid: 2fbd9d6afd55faa488e40c6129e8fe67, type: 2}
   _levelupEvent: {fileID: 11400000, guid: 70ef0681497211e4cb6c6169f1e76a41, type: 2}
 --- !u!1001 &1818412341
@@ -29250,10 +29249,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c64e927d8396f8040ba26f5ea8bc0ca6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverStateSO: {fileID: 11400000, guid: d620c5a15f225bc4cb39bda7d6e3e3e0, type: 2}
   gameStateManagerSO: {fileID: 11400000, guid: 9cfe2dd478d48934696d11fa12f5c389, type: 2}
+  gameOverStateSO: {fileID: 11400000, guid: d620c5a15f225bc4cb39bda7d6e3e3e0, type: 2}
   playerHealth: {fileID: 11400000, guid: a5bc91331e7aa7e40976ad5d3c2fb922, type: 2}
-  upgradePool: {fileID: 11400000, guid: 453c0f6534a23c94894c9d3ebe7c42d2, type: 2}
   killAmount: {fileID: 11400000, guid: 66d98e801da82944a9fee00eb8ffcc23, type: 2}
   playerPrefab: {fileID: 7238411897084836524, guid: 00ec58961511d74409c8eada02001b9a, type: 3}
   gameoverSound: {fileID: 11400000, guid: 1a56b927cefb2c741b7a7ebe82e9fdff, type: 2}

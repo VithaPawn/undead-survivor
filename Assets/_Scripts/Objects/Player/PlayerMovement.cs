@@ -37,6 +37,24 @@ public class PlayerMovement : MonoBehaviour {
         playerRb = GetComponent<Rigidbody2D>();
     }
 
+    private void OnEnable()
+    {
+        gameStateManagerSO.OnChanged += GameStateManagerSO_OnChanged;
+    }
+
+    private void OnDisable()
+    {
+        gameStateManagerSO.OnChanged -= GameStateManagerSO_OnChanged;
+    }
+
+    private void GameStateManagerSO_OnChanged()
+    {
+        if (gameStateManagerSO.IsGamePlaying())
+        {
+            moveSpeed.ResetValue();
+        }
+    }
+
     private void Update()
     {
         if (gameStateManagerSO.IsGamePlaying())

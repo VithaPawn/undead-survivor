@@ -99,6 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: 0
   runOnlyOnce: 0
+  runEachTimeEnable: 0
 --- !u!1 &2966816193749157127
 GameObject:
   m_ObjectHideFlags: 0

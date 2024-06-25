@@ -15,11 +15,14 @@ MonoBehaviour:
   upgradeType: {fileID: 11400000, guid: 658485c154e50b249954d013aadcc3e7, type: 2}
   upgradeSystemId: 5
   upgradeName: Do Exercise IV
-  information: +30 Health Point
+  information: Increase max health by 30, and restore 30 health
   description: You can descend into hell and come back without a serious injury.
   icon: {fileID: 927338625, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
   level: 4
   nextUpgrade: []
   abilityPrefab: {fileID: 0}
-  statEntity: {fileID: 11400000, guid: 3c1e58e30aee3b34e9058ae46bf4b6b5, type: 2}
-  additionalStatIndex: 30
+  statUpgrades:
+  - statData: {fileID: 11400000, guid: 3c1e58e30aee3b34e9058ae46bf4b6b5, type: 2}
+    additionalStatIndex: 30
+  - statData: {fileID: 11400000, guid: a5bc91331e7aa7e40976ad5d3c2fb922, type: 2}
+    additionalStatIndex: 30

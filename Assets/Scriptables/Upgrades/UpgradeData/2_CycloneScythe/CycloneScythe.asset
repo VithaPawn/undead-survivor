@@ -15,7 +15,7 @@ MonoBehaviour:
   upgradeType: {fileID: 11400000, guid: a30a9e481721f4c469bb8453edb47f15, type: 2}
   upgradeSystemId: 2
   upgradeName: Cyclone Scythe I
-  information: Shoot a Scythe in the fixed direction
+  information: Shoot a Scythe in the fixed direction.
   description: Grab your scythe! It's time to reap some enemy heads!
   icon: {fileID: -344242777, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
   level: 1

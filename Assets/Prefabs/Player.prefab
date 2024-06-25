@@ -116,6 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: -5
   runOnlyOnce: 0
+  runEachTimeEnable: 0
 --- !u!95 &8705441100919809068
 Animator:
   serializedVersion: 5
@@ -744,6 +745,7 @@ GameObject:
   - component: {fileID: 7286250267161871286}
   - component: {fileID: 3805532133151462798}
   - component: {fileID: 855345036996924375}
+  - component: {fileID: 2452426790578536573}
   - component: {fileID: 3807709525451679964}
   - component: {fileID: 2712768426275645851}
   - component: {fileID: 6616665578064740078}
@@ -850,6 +852,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5848456, y: 0.5184392}
   m_EdgeRadius: 0
+--- !u!114 &2452426790578536573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7238411897084836524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d500ef633ab8414d946f4f7113e311b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameStateManager: {fileID: 11400000, guid: 9cfe2dd478d48934696d11fa12f5c389, type: 2}
 --- !u!114 &3807709525451679964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -862,6 +877,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aef2b45747c7d5448815b7f5bf8703f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameStateManager: {fileID: 11400000, guid: 9cfe2dd478d48934696d11fa12f5c389, type: 2}
   currentHealth: {fileID: 11400000, guid: a5bc91331e7aa7e40976ad5d3c2fb922, type: 2}
   maxHealth: {fileID: 11400000, guid: 3c1e58e30aee3b34e9058ae46bf4b6b5, type: 2}
 --- !u!114 &2712768426275645851
@@ -925,6 +941,7 @@ MonoBehaviour:
   playerHealth: {fileID: 11400000, guid: a5bc91331e7aa7e40976ad5d3c2fb922, type: 2}
   weaponHoldPoint: {fileID: 2416974915555560131}
   weaponPrefab: {fileID: 0}
+  gameStateManager: {fileID: 11400000, guid: 9cfe2dd478d48934696d11fa12f5c389, type: 2}
   mainWeaponType: {fileID: 11400000, guid: dd86abd405e4a3047a66bf50325cfae6, type: 2}
   upgradePool: {fileID: 11400000, guid: 453c0f6534a23c94894c9d3ebe7c42d2, type: 2}
 --- !u!114 &627342094460884402
@@ -939,8 +956,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6540a245f92f626498f01338f86831cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stat: {fileID: 0}
-  upgradePool: {fileID: 0}
+  stat: {fileID: 11400000, guid: 658485c154e50b249954d013aadcc3e7, type: 2}
+  upgradePool: {fileID: 11400000, guid: 453c0f6534a23c94894c9d3ebe7c42d2, type: 2}
 --- !u!1 &8049506185460194032
 GameObject:
   m_ObjectHideFlags: 0

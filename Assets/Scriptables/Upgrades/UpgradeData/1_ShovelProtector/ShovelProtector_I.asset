@@ -15,7 +15,7 @@ MonoBehaviour:
   upgradeType: {fileID: 11400000, guid: a823402e42650bc43bdf7b969b09f6ef, type: 2}
   upgradeSystemId: 1
   upgradeName: Shovel Protector I
-  information: Rebel targets with orbiting Shovel
+  information: A Shovel flies around you and deals damage for any enemies come close
   description: 'Shovels fly around you! Enemies beware: approaching you will cost
     them dearly! '
   icon: {fileID: -181907988, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}

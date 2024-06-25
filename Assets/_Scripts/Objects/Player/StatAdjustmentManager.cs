@@ -18,7 +18,10 @@ public class StatAdjustmentManager : MonoBehaviour {
     {
         if (upgradeData.UpgradeType == stat)
         {
-            upgradeData.StatEntity.Increase(upgradeData.AdditionalStatIndex);
+            foreach (var statData in upgradeData.StatUpgrades)
+            {
+                statData.StatData.Increase(statData.AdditionalStatIndex);
+            }
         }
     }
 }

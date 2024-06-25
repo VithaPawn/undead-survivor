@@ -16,7 +16,7 @@ MonoBehaviour:
   prefab: {fileID: 949392695794290516, guid: 71175861e0a9d744193d673e7b1280ef, type: 3}
   enemyName: The Hulk
   damageToPlayer: 100
-  health: 180
+  health: 300
   speed: 1.5
   bodyRemainDelay: 0
   value: 3

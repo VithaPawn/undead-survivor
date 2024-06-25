@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class EffectManager : MonoBehaviour {
     #region Variables
-    [SerializeField] private ParticleSystemChannelSO _enemyExplodeEvent;
     [SerializeField] private ParticleSystemChannelSO _bulletExplodeEvent;
     [SerializeField] private ParticleSystemChannelSO _levelupEvent;
     #endregion Variables
@@ -11,15 +10,12 @@ public class EffectManager : MonoBehaviour {
     #region Methods
     private void OnEnable()
     {
-        _enemyExplodeEvent.OnParticleSystemRequested += PlayEffect;
         _levelupEvent.OnParticleSystemRequested += PlayEffect;
         _bulletExplodeEvent.OnParticleSystemRequested += PlayEffect;
     }
 
     private void OnDisable()
-
     {
-        _enemyExplodeEvent.OnParticleSystemRequested -= PlayEffect;
         _levelupEvent.OnParticleSystemRequested -= PlayEffect;
         _bulletExplodeEvent.OnParticleSystemRequested -= PlayEffect;
     }

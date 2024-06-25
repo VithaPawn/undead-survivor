@@ -5,20 +5,17 @@ public class GameManager : MonoBehaviour {
     #region Variables
     public static GameManager Instance { get; private set; }
 
-    [Header("Game State")]
-    [SerializeField] private GameStateSO gameOverStateSO;
-    [Header("Game State Manager")]
+    [Header("Game States")]
     [SerializeField] private GameStateManagerSO gameStateManagerSO;
-    [Header("Information need to reset")]
+    [SerializeField] private GameStateSO gameOverStateSO;
+    [Header("General Statistics")]
     [SerializeField] private FloatVariableSO playerHealth;
-    [SerializeField] private UpgradePool upgradePool;
     [SerializeField] private FloatVariableSO killAmount;
-    [Header("Playing Time Counter")]
     private float playingTimeCounter = 0f;
-    [Header("Player")]
+    [Header("Player Prefab")]
     [SerializeField] private GameObject playerPrefab;
     private GameObject playerObject;
-    [Header("Game Over Sound")]
+    [Header("Sounds")]
     [SerializeField] private SoundChannelSO gameoverSound;
     #endregion Variables
 
@@ -55,12 +52,10 @@ public class GameManager : MonoBehaviour {
         if (player == null)
         {
             playerObject = Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
-        }
-        else
+        } else
         {
             playerObject = player;
         }
-        playerObject.SetActive(false);
     }
 
     private void Update()
@@ -85,19 +80,7 @@ public class GameManager : MonoBehaviour {
         if (gameStateManagerSO.IsGamePlaying())
         {
             playingTimeCounter = 0f;
-            playerHealth.ResetValue();
-            upgradePool.ResetAvailablePool();
             killAmount.ResetValue();
-            playerObject.transform.position = Vector3.zero;
-            playerObject.SetActive(true);
-        }
-        else
-        {
-            playerObject.SetActive(false);
-        }
-        if (gameStateManagerSO.IsGameMenu())
-        {
-            playerObject.transform.position = Vector3.zero;
         }
     }
 

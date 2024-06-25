@@ -15,7 +15,7 @@ MonoBehaviour:
   upgradeType: {fileID: 11400000, guid: dd86abd405e4a3047a66bf50325cfae6, type: 2}
   upgradeSystemId: 6
   upgradeName: Zack's Shorty Gun II
-  information: +1 Bullet
+  information: Increase damage by 10
   description: ...I took down my first zombie with this gun. An entire magazine.
     Panic make me miss a lot of shots...
   icon: {fileID: -205726582, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}

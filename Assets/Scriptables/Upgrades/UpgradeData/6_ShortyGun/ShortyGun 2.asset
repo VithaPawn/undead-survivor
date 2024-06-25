@@ -15,7 +15,7 @@ MonoBehaviour:
   upgradeType: {fileID: 11400000, guid: dd86abd405e4a3047a66bf50325cfae6, type: 2}
   upgradeSystemId: 6
   upgradeName: Zack's Shorty Gun III
-  information: -10% Reload Time
+  information: Fire one more bullet each shot
   description: ..."An incredible weapon!" - Those were the first words my wife said
     to me....
   icon: {fileID: -205726582, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}

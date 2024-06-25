@@ -1,6 +1,7 @@
 using DatabaseSystem.ScriptableObjects;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class WaveManager : MonoBehaviour {
@@ -90,7 +91,7 @@ public class WaveManager : MonoBehaviour {
         }
         else
         {
-            enemyEnableToSpawnList = enemyTotalList;
+            enemyEnableToSpawnList = enemyTotalList.ToList();
         }
     }
 

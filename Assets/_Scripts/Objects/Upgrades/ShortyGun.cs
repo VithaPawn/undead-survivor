@@ -1,15 +1,22 @@
 using DatabaseSystem.ScriptableObjects;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class ShortyGun : ActiveShooting, IUpgradeSingle {
-    [Header("Upgrade System ID")]
+public class ShortyGun : VisualWeaponShooting, IUpgradeSingle {
+    [Header("Default Weapon Data")]
+    private ShootingWeapon defaultWeaponData;
+    [Header("Upgrade System")]
     [SerializeField] private int upgradeSystemId;
-    [Header("Gun Upgrade List")]
     [SerializeField] List<ShootingWeapon> shortyGunUpgrades;
 
     public int UpgradeSystemId { get => upgradeSystemId; set => upgradeSystemId = value; }
+
+    private void Awake()
+    {
+        defaultWeaponData = shootingWeaponSO;
+    }
 
     public void EnhanceUpgrade(int level)
     {
@@ -20,5 +27,14 @@ public class ShortyGun : ActiveShooting, IUpgradeSingle {
     }
 
     public void SetupUpgrade(Transform firingPointTransform)
-    {}
+    {
+        if (defaultWeaponData)
+        {
+            shootingWeaponSO = defaultWeaponData;
+        }
+        else
+        {
+            Debug.LogError("There is no default weapon data");
+        }
+    }
 }

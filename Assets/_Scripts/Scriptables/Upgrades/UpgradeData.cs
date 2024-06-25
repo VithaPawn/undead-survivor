@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,8 +16,7 @@ public class UpgradeData : ScriptableObject {
     [Header("For Weapon/Ability Type")]
     [SerializeField] private GameObject abilityPrefab;
     [Header("For Stat Type")]
-    [SerializeField] private FloatVariableSO statEntity;
-    [SerializeField] private float additionalStatIndex;
+    [SerializeField] private List<StatUpgradeData> statUpgrades;
     #endregion Variables
 
     #region Methods
@@ -29,7 +29,17 @@ public class UpgradeData : ScriptableObject {
     public int Level { get { return level; } }
     public List<UpgradeData> NextUpgrade { get { return nextUpgrade; } }
     public GameObject AbilityPrefab { get { return abilityPrefab; } }
-    public FloatVariableSO StatEntity { get { return statEntity; } }
-    public float AdditionalStatIndex { get { return additionalStatIndex; } }
+    public List<StatUpgradeData> StatUpgrades { get { return statUpgrades; } }
     #endregion Methods
+
+    #region StatData
+    [Serializable]
+    public class StatUpgradeData
+    {
+        [SerializeField] private FloatVariableSO statData;
+        [SerializeField] private float additionalStatIndex;
+        public FloatVariableSO StatData { get { return statData; } }
+        public float AdditionalStatIndex { get { return additionalStatIndex; } }
+    }
+    #endregion StatData
 }

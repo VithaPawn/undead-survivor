@@ -15,7 +15,7 @@ MonoBehaviour:
   upgradeType: {fileID: 11400000, guid: a823402e42650bc43bdf7b969b09f6ef, type: 2}
   upgradeSystemId: 1
   upgradeName: Shovel Protector IV
-  information: +1 Shovel
+  information: Add one additional Shovel
   description: '"Take this shovel and protect your people." - The Black Turtle of
     HoongAn'
   icon: {fileID: -181907988, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}

@@ -15,7 +15,7 @@ MonoBehaviour:
   upgradeType: {fileID: 11400000, guid: a30a9e481721f4c469bb8453edb47f15, type: 2}
   upgradeSystemId: 2
   upgradeName: Cyclone Scythe II
-  information: +1 Scythe
+  information: Shoot one additional Scythe in the other direction.
   description: Your scythes need more blood!
   icon: {fileID: -344242777, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
   level: 2

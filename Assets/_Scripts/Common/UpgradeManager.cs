@@ -44,6 +44,7 @@ public class UpgradeManager : MonoBehaviour
         if (gameStateManager.IsGamePlaying())
         {
             playingUpgradeSystemDict.Clear();
+            pool.ResetAvailablePool();
         }
     }
     private void Pool_OnUpgrade(UpgradeData obj)

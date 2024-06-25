@@ -15,13 +15,12 @@ MonoBehaviour:
   upgradeType: {fileID: 11400000, guid: dd86abd405e4a3047a66bf50325cfae6, type: 2}
   upgradeSystemId: 6
   upgradeName: Zack's Shorty Gun IV
-  information: +10 Damage
+  information: Increase fire rate by 12.5%
   description: ...It was that very weapon that ended what used to be my wife and
     child...
   icon: {fileID: -205726582, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
   level: 4
-  nextUpgrade:
-  - {fileID: 11400000, guid: b91257a76149d994386c3234d9221abe, type: 2}
+  nextUpgrade: []
   abilityPrefab: {fileID: 2966816193749157127, guid: 91bfbaa3e3274f445bfb2d9f7051a13e, type: 3}
   statEntity: {fileID: 0}
   additionalStatIndex: 0

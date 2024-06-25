@@ -15,12 +15,13 @@ MonoBehaviour:
   upgradeType: {fileID: 11400000, guid: 658485c154e50b249954d013aadcc3e7, type: 2}
   upgradeSystemId: 4
   upgradeName: Hermes's Shoes IV
-  information: +1 Speed
+  information: Increase movement speed by 15% base
   description: '"The Runner" - a respect title for the fastest among the Wanderers.'
   icon: {fileID: -966295699, guid: d71a3dc7aa20fad4f9a99fc76a9254ba, type: 3}
   level: 4
   nextUpgrade:
   - {fileID: 11400000, guid: 54001a1b0a0502a49b6ed9e33d04ccfa, type: 2}
   abilityPrefab: {fileID: 0}
-  statEntity: {fileID: 11400000, guid: c76b61bd992d8fa4fbcac22d937eb78d, type: 2}
-  additionalStatIndex: 1
+  statUpgrades:
+  - statData: {fileID: 11400000, guid: c76b61bd992d8fa4fbcac22d937eb78d, type: 2}
+    additionalStatIndex: 1

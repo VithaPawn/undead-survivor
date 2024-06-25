@@ -1,15 +1,12 @@
-using DatabaseSystem.ScriptableObjects;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Pool;
 
-public class ActiveShooting : Shooting {
+public class VisualWeaponShooting : Shooting {
 
     #region Variables
 
     [SerializeField] private BooleanVariableSO IsPlayerTurnRight;
-    [SerializeField] private float burstTime = 0.1f;
-    private bool isCooldown = false;
+    [SerializeField] private float burstTime = 0.15f;
 
     private Weapon weapon;
     #endregion Variables
@@ -18,41 +15,19 @@ public class ActiveShooting : Shooting {
     {
         weapon = GetComponent<Weapon>();
         SetupShootingWeapon(shootingWeaponSO);
-        GameInput.Instance.OnShoot += GameInput_OnShoot;
     }
 
-    private void OnDestroy()
-    {
-        GameInput.Instance.OnShoot -= GameInput_OnShoot;
-    }
 
     private void Update()
     {
-        if (isCooldown)
-        {
-            HandleShootingCooldown(() =>
-            {
-                isCooldown = false;
-            });
-        }
-    }
-
-    private void GameInput_OnShoot(object sender, System.EventArgs e)
-    {
         if (weapon.GetWeaponHolder() != null && gameStateManagerSO.IsGamePlaying())
         {
-            Shoot();
+            HandleShootingCooldown(Shoot);
         }
     }
 
     protected override void Shoot()
     {
-        if (isCooldown)
-        {
-            return;
-        }
-        isCooldown = true;
-
         float burstTimeCounter = 0f;
         for (int i = 0; i < bulletAmountPerShot; i++)
         {
